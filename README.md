@@ -1,9 +1,8 @@
-## Test Heading
+# Reference Guides
 
-Test para. Test para.
+This document contains references and explanations for syntax, operators, functions, and methods.
+Click here for the batch file reference guide. 
 
-Test para. Test para.
+# Python 
 
-Test para. Test para.
-
-Test para. Test para.
+## Python build-in Methods
