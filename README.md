@@ -15,10 +15,13 @@ The upper() and lower() methods must be called on a string value. They return a 
 ```
 x = 'Abc'
 x = x.upper()
->>>'ABC'
+print(x)
 
 x = x.lower()
->>>'abc'
+print(x)
+
+# Output: 'ABC'
+# Output: 'abc'
 ```
 
 # Batch Files
