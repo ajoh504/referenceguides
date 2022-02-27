@@ -1,10 +1,11 @@
 # Reference Guides
 
-This document contains references and explanations for syntax, operators, functions, and methods.
-Click [here](#batch-files) for the batch file reference guide. 
+Explanations and code snippets on syntax, operators, functions, and built-in methods.
+
+[Batch file reference guide](#batch-files)
 
 # Python 
 
-### Python build-in Methods
+### Python built-in Methods
 
 # Batch Files
