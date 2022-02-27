@@ -6,18 +6,18 @@ Explanations and code snippets on syntax, operators, functions, and built-in met
 
 # Python 
 
-### Python built-in Methods
+### Python Built-In Methods
 
-### isupper() and islower() methods
+### upper() and lower() methods
 
-The isupper() and islower() methods must be called on a string value. They return a new string either in all uppercase or all lowercase.
+The upper() and lower() methods must be called on a string value. They return a new string either in all uppercase or all lowercase.
 
 ```
 x = 'Abc'
-x = x.isupper()
+x = x.upper()
 >>>'ABC'
 
-x = x.islower()
+x = x.lower()
 >>>'abc'
 ```
 
