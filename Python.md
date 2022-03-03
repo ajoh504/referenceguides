@@ -6,7 +6,7 @@
 
 The upper() and lower() methods must be called on a string value. They return a new string either in all uppercase or all lowercase.
 
-```
+```py
 x = 'Abc'
 x = x.upper()
 print(x)
@@ -30,7 +30,7 @@ print(test)
 # Output: <__main__.testClass object at 0x7fd88c5c6520>
 
 Because the class is empty, the print statement returns the memory address where the object is stored. 
-```
+```py
 class test_class:
   x = 5
   y = 6
