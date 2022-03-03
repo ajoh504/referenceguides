@@ -8,7 +8,7 @@ Explanations and code snippets on syntax, operators, functions, and built-in met
 
 ### Python Built-In Methods
 
-### upper() and lower() methods
+##### upper() and lower() methods
 
 The upper() and lower() methods must be called on a string value. They return a new string either in all uppercase or all lowercase.
 
@@ -23,5 +23,8 @@ print(x)
 # Output: 'ABC'
 # Output: 'abc'
 ```
+### Python Custom Classes
+
+
 
 # Batch Files
