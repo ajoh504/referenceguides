@@ -36,7 +36,7 @@ print(test)
 # Output: <__main__.testClass object at 0x7fd88c5c6520>
 
 Because the class is empty, the print statement returns the memory address where the object is stored. 
-
+```
 class test_class:
   x = 5
   y = 6
@@ -47,9 +47,10 @@ print(test.y)
 
 # Output: 5
 # Output: 6
-
-# https://learnpython.com/blog/custom-class-python/
-# https://www.w3schools.com/python/python_classes.asp
-# https://docs.python.org/3/tutorial/classes.html
+```
+Sources: 
+https://learnpython.com/blog/custom-class-python/
+https://www.w3schools.com/python/python_classes.asp
+https://docs.python.org/3/tutorial/classes.html
 
 # Batch Files
