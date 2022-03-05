@@ -1,6 +1,6 @@
 # Python 
 
-
+A non-comprehensive guide on built-in functions, built-in methods, and custom class creation. Links to sources where applicable. All examples were used on Python v. 3.10.2
 
 # Built-In Functions
 
@@ -18,6 +18,7 @@ for i in range(3):
 ```
 
 Optionally, the range() function can receive three arguments: range(start, stop, step). Start and stop refer to the beginning and ending integers, and step refers to the incrementation. 
+
 ```py
 x = range(7, 10)
 for i in x:
@@ -27,6 +28,7 @@ for i in x:
 # Output: 8
 # Output: 9
 ```
+
 # Built-In Methods
 
 ### upper() and lower() methods:
@@ -44,9 +46,11 @@ print(x)
 # Output: 'ABC'
 # Output: 'abc'
 ```
+
 # Custom Classes
 
 In Python, a custom class can be created to organize and store objects.
+
 ```py
 class test_class:
   pass
@@ -56,7 +60,9 @@ print(test)
 
 # Output: <__main__.testClass object at 0x7fd88c5c6520>
 ```
+
 Because the class is empty, the print statement returns the memory address where the object is stored. 
+
 ```py
 class test_class:
   x = 5
@@ -69,7 +75,8 @@ print(test.y)
 # Output: 5
 # Output: 6
 ```
-Sources: 
+
+Sources for custom classes: 
 
 https://learnpython.com/blog/custom-class-python/
 
