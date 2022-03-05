@@ -1,12 +1,12 @@
 # Python 
 
-A non-comprehensive guide on built-in functions, built-in methods, and custom class creation. Links to sources where applicable. All examples were used on Python v. 3.10.2
+A guide on built-in functions, built-in methods, the standard library, and custom class creation. Links to sources are provided where applicable. All examples were used on Python v. 3.10.2
 
 # Built-In Functions
 
 ### range() function with for loops
 
-The range() function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the stopping point integer is not returned. The range() function can also be called directly inside the for loop.
+The range() function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the stopping point integer is not returned. The range() function can also be called directly inside a for loop.
 
 ```py
 for i in range(3):
@@ -17,7 +17,7 @@ for i in range(3):
 # Output: 2
 ```
 
-Optionally, the range() function can receive three arguments: range(start, stop, step). Start and stop refer to the beginning and ending integers, and step refers to the incrementation. 
+Optionally, the range() function can receive two arguments: range(start, stop). It can also receive up to three arguments: range(start, stop, step). Start and stop refer to the beginning and ending integers, and step refers to the incrementation. 
 
 ```py
 x = range(7, 10)
@@ -27,6 +27,27 @@ for i in x:
 # Output: 7
 # Output: 8
 # Output: 9
+```
+The step argument can be used in a variety of scenarios. For example, printing only even or odd numbers, or every (x) number. 
+
+```py
+for i in range(0, 10, 2):
+  print(i)
+  
+# Output: 0
+# Output: 2
+# Output: 4
+# Output: 6
+# Output: 8
+
+for i in range(10, 60, 10):
+  print(i)
+  
+# Output: 10
+# Output: 20
+# Output: 30
+# Output: 40
+# Output: 50
 ```
 
 # Built-In Methods
