@@ -5,7 +5,7 @@ Windows batch files are typically stored in a plain text file and saved with the
 ### Variable declaration
 
 To declare a variable in a batch file, use the `set` command, name the variable, then initialize it with a value.
-```cmd
+```bat
 @ECHO OFF
 SET var1='Hello World'
 ECHO %var%
