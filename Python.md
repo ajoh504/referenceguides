@@ -7,6 +7,7 @@
 ### range() function with for loops
 
 The range() function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the stopping point integer is not returned. The range() function can also be called directly inside the for loop.
+
 ```py
 for i in range(3):
   print(i)
@@ -15,6 +16,7 @@ for i in range(3):
 # Output: 1
 # Output: 2
 ```
+
 Optionally, the range() function can receive three arguments: range(start, stop, step). Start and stop refer to the beginning and ending integers, and step refers to the incrementation. 
 ```py
 x = range(7, 10)
