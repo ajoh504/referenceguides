@@ -51,6 +51,7 @@ for i in range(10, 60, 10):
 ```
 
 range() function sources:
+
 https://automatetheboringstuff.com/2e/chapter2/
 
 # Built-In Methods
@@ -73,7 +74,7 @@ print(x)
 
 # Custom Classes
 
-In Python, a custom class can be created to organize and store objects.
+In Python, a custom class can be created to organize and store objects. 
 
 ```py
 class test_class:
@@ -113,3 +114,7 @@ https://docs.python.org/3/tutorial/classes.html
 Python comes pre-built with a standard library, a collection of modules that can be imported into your code as needed. Import a new module using the `import` statement.
 
 ### import random
+
+Standard library sources:
+
+https://automatetheboringstuff.com/2e/chapter2/
