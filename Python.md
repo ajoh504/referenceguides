@@ -86,18 +86,67 @@ print(test)
 # Output: <__main__.testClass object at 0x7fd88c5c6520>
 ```
 
-
+An object is created when a class is assigned to a variable. The variable can be used to invoke values stored inside the class.
 
 ```py
 class test_class:
   x = 5
   y = 6
 
-print(test_class().x)
-print(test_class().y)
+test = test_class()
+print(test.x)
+print(test.y)
 
 # Output: 5
 # Output: 6
+```
+
+The `self` keyword is a reference to the class itself. It is passed as an argument to the `__init__()` function, which is used to create new instances of that class. In this next example, we'll create a new instance called `number` and assign it a value of `5`.
+
+```py
+class test_class:
+    def __init__(self):
+        self.number = 5
+
+test = test_class()
+print(test.number)
+
+# Output: 5
+```
+
+The `__init()__` function can receive arguments to assign new values to the class. 
+
+```py
+class menu:
+    def __init__(self, entree, dessert):
+        self.entree = entree
+        self.dessert = dessert
+
+test = menu("Salmon", "Ice cream")
+print(test.entree)
+print(test.dessert)
+
+# Output: Salmon
+# Output: Ice cream
+```
+
+Classes can also contain methods, which are functions that can be called when invoking the class name.
+
+```py
+class menu:
+    def __init__(self, entree, dessert):
+        self.entree = entree
+        self.dessert = dessert
+
+    def display_menu(self):
+        print(self.entree)
+        print(self.dessert)
+
+test = menu("Salmon", "Ice cream")
+test.display_menu()
+
+# Output: Salmon
+# Output: Ice cream
 ```
 
 Sources for custom classes: 
