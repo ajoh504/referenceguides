@@ -74,7 +74,7 @@ print(x)
 
 # Custom Classes
 
-In Python, a custom class can be created to organize and store objects. 
+In Python, a custom class can be created to organize and store objects using the `class` keyword. If the class is empty, the print statement returns the memory address where the object is stored.
 
 ```py
 class test_class:
@@ -86,16 +86,15 @@ print(test)
 # Output: <__main__.testClass object at 0x7fd88c5c6520>
 ```
 
-Because the class is empty, the print statement returns the memory address where the object is stored. 
+
 
 ```py
 class test_class:
   x = 5
   y = 6
 
-test = test_class()
-print(test.x)
-print(test.y)
+print(test_class().x)
+print(test_class().y)
 
 # Output: 5
 # Output: 6
