@@ -50,6 +50,9 @@ for i in range(10, 60, 10):
 # Output: 50
 ```
 
+range() function sources:
+https://automatetheboringstuff.com/2e/chapter2/
+
 # Built-In Methods
 
 ### upper() and lower() methods:
@@ -104,3 +107,9 @@ https://learnpython.com/blog/custom-class-python/
 https://www.w3schools.com/python/python_classes.asp
 
 https://docs.python.org/3/tutorial/classes.html
+
+# Standard library
+
+Python comes pre-built with a standard library, a collection of modules that can be imported into your code as needed. Import a new module using the `import` statement.
+
+### import random
