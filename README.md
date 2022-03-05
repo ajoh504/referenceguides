@@ -1,56 +1,7 @@
-# Reference Guides
+# Reference Guides README
 
-Explanations and code snippets on syntax, operators, functions, and built-in methods.
+This is a repository for code snippets and explanations. Instead of searching back through old ebooks, bookmarks, and internet articles, I decided to keep a repo of things that I've learned while studying programming. 
 
-[Batch file reference guide](#batch-files)
+Note: These guides are non-comprehensive. I will update them as I encounter new things, but they are not intended to be an all-encompassing guide. I've linked to as many helpful resources as I can. Please reach out if you have suggestions, comments, or guidance on anything you see here. Overall, I hope you find this information to be useful =D
 
-# Python 
 
-# Python Built-In Methods
-
-### upper() and lower() methods:
-
-The upper() and lower() methods must be called on a string value. They return a new string either in all uppercase or all lowercase.
-
-```
-x = 'Abc'
-x = x.upper()
-print(x)
-
-x = x.lower()
-print(x)
-
-# Output: 'ABC'
-# Output: 'abc'
-```
-### Python Custom Classes
-
-In Python, a custom class can be created to organize and store objects.
-
-class test_class:
-  pass
-
-test = test_class()
-print(test)
-
-# Output: <__main__.testClass object at 0x7fd88c5c6520>
-
-Because the class is empty, the print statement returns the memory address where the object is stored. 
-```
-class test_class:
-  x = 5
-  y = 6
-
-test = test_class()
-print(test.x)
-print(test.y)
-
-# Output: 5
-# Output: 6
-```
-Sources: 
-https://learnpython.com/blog/custom-class-python/
-https://www.w3schools.com/python/python_classes.asp
-https://docs.python.org/3/tutorial/classes.html
-
-# Batch Files
