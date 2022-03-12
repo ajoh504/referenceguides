@@ -1,5 +1,4 @@
 # Python 
-
 A guide on built-in functions, built-in methods, classes, and the standard library. All examples were used on Python v. 3.10.2
 
 ### try and except statements
@@ -201,10 +200,107 @@ print('1','2','3',sep=', ')
 
 # Output: 1, 2, 3
 ```
+### list() and tuple() 
+
+Convert a list to a tuple, or vice versa, using either the `list()` or `tuple()` function. Both functions work with strings. 
+```py
+character_list = ['Aragorn', 'Legolas', 'Bilbo']
+character_tuple = tuple(character_list)
+print(character_tuple)
+
+# Output: ('Aragorn', 'Legolas', 'Bilbo')
+```
+```
+character = 'Aragorn'
+character = list(character)
+print(character)
+
+# Output: ['A', 'r', 'a', 'g', 'o', 'r', 'n']
+```
+
+### id() function returns the memory address where the object is stored. 
+```py
+character = 'Aragorn'
+print(id(character))
+
+# Output: Memory address location
+
+```
 
 # Built-In Methods
 
-### upper() and lower() methods:
+### keys(), values(), and items() on dictionaries
+
+The `keys()`, `values`, and `items()` methods can be used to loop through the contents of a dictionary. 
+
+```py
+Legolas = {'Race': "Elf", 'Weapon': "Bow"}
+for k in Legolas.keys():
+    print(k)
+        
+# Output: Race
+# Output: Weapon
+
+Legolas = {'Race': "Elf", 'Weapon': "Bow"}
+for v in Legolas.values():
+    print(v)
+    
+# Output: Elf
+# Output: Bow
+
+Legolas = {'Race': "Elf", 'Weapon': "Bow"}
+for k, v in Legolas.items():
+    print(k + ': ' + v)
+    
+# Output: Race: Elf
+# Output: Weapon: Bow
+```
+Combine these methods with the `list()` or `tuple()` functions to receive a new list or tuple with a dictionary's keys, values, or both.
+```py
+Legolas = {'Race': "Elf", 'Weapon': "Bow"}
+print(list(Legolas.keys()))
+
+# Output: ['Race', 'Weapon']
+```
+
+Combine with the `in` or `not in` operators to see if the key or value is inside the dictionary. 
+```py
+Legolas = {'Race': "Elf", 'Weapon': "Bow"}
+print('Sword' in Legolas.keys())
+
+# Output: False
+```
+The `get()` method searches a dictionary for a given key, and takes an optional argument to return if the key is not found.
+```py
+Gimli = {'Race': "Dwarf", 'Weapon': "Axe"}
+print(Gimli.get('Home', 'No home found'))
+
+# Output: No home found
+```
+### setdefault() with dictionaries
+
+The `setdefault()` method adds a key and sets its default value. If the key is already stored in the dictionary, it returns the value.
+```py
+Shire = {
+  'Location': "Middle Earth",
+  'Inhabitants': "Hobbits",
+}
+test = Shire.setdefault('Location', "")
+print(test)
+
+# Output: Middle Earth
+
+Shire = {
+  'Location': "Middle Earth",
+  'Inhabitants': "Hobbits",
+}
+test = Shire.setdefault('Farmland', True)
+print(Shire)
+
+# Output: {'Location': 'Middle Earth', 'Inhabitants': 'Hobbits', 'Farmland': True}
+```
+
+### upper() and lower() on strings
 
 Use the `upper()` or `lower()` methods on a string value. This returns a new string in all uppercase or all lowercase.
 
@@ -219,7 +315,7 @@ print(x)
 # Output: 'ABC'
 # Output: 'abc'
 ```
-### index() method:
+### index() method on iterable data types
 
 Use the `index()` method on lists, tuples, or strings to return the index value of the given item. 
 
@@ -230,7 +326,7 @@ print(list1.index('test1'))
 # Output: 0
 ```
 
-### append(), insert(), remove(), sort(), and reverse() methods:
+### append(), insert(), remove(), sort(), and reverse()  
 
 Use `append()` on a list to append an item to the end of the list. Both methods modify the list in place, so the return value is `None`.
 
@@ -320,6 +416,10 @@ print(random.shuffle(list1))
 ```
 
 Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](https://automatetheboringstuff.com/2e/chapter4/)
+
+### import copy
+
+Use `copy.copy()` to copy the contents of one variable to another. Use `copy.deepcopy()` if the contents contain lists within lists. 
 
 # Classes
 
