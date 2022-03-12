@@ -204,7 +204,7 @@ print('1','2','3',sep=', ')
 
 # Built-In Methods
 
-### upper() and lower() methods on strings:
+### upper() and lower() methods:
 
 Use the `upper()` or `lower()` methods on a string value. This returns a new string in all uppercase or all lowercase.
 
@@ -219,6 +219,107 @@ print(x)
 # Output: 'ABC'
 # Output: 'abc'
 ```
+### index() method:
+
+Use the `index()` method on lists, tuples, or strings to return the index value of the given item. 
+
+```py
+list1 = ['test1', 'test2', 'test3']
+print(list1.index('test1'))
+
+# Output: 0
+```
+
+### append(), insert(), remove(), sort(), and reverse() methods:
+
+Use `append()` on a list to append an item to the end of the list. Both methods modify the list in place, so the return value is `None`.
+
+```py
+test = [1,2,3,4,5]
+print(test.append(6))
+print(test)
+
+# Output: None
+# Output: [1, 2, 3, 4, 5, 6]
+```
+Use `insert()` with two required arguments to insert an item at any index. The first argument is the index, the second argument is the item to be added.
+```py
+test = [1,2,3,4,5]
+test.insert(5, 6)
+print(test)
+
+# Output: [1, 2, 3, 4, 5, 6]
+```
+Use `remove()` two remove an item from a list. Useful if you do not know the index of the item to be removed. Otherwise, simply use `del`.
+```py
+test = [1,2,3,4,5]
+test.remove(5)
+print(test)
+
+# Output: [1, 2, 3, 4]
+```
+
+Use `sort()` to sort items in a list. `sort()` takes an optional keyword: `reverse=True` to sort the items in reverse order.
+```py
+test = [1,4,5,2,3]
+test.sort(reverse=True)
+print(test)
+
+# Output: [5, 4, 3, 2, 1]
+```
+If using `sort` on text, uppercase is sorted first and grouped together, followed by lowercase. Use the optional keyword `key=str.lower` to treat the text as all lowercase. The text is not changed to lowercase, but only treated as such for sorting purposes. 
+
+```py
+list1 = ['mordor', 'The Shire', 'gondor']
+list1.sort(key=str.lower, reverse=True)
+print(list1)
+
+# Output: ['The Shire', 'mordor', 'gondor']
+```
+
+Use the `reverse()` method to reverse the items in a list.
+```py
+test = [1,4,5,2,3]
+test.reverse()
+print(test)
+
+# Output: [1, 2, 3, 4, 5]
+```
+
+# Standard library
+
+Python comes pre-built with a standard library, a collection of modules that can be imported into your code as needed. Import a new module using the `import` statement.
+
+### import random
+
+Use `random.randint()` on a range of numbers to return a random number. 
+```py
+import random
+print(random.randint(1,100))
+
+# Output: a random integer between 1 and 100
+```
+
+Use `random.choice()` on a list to return a random item from that list. 
+
+```py
+import random
+list1 = ['Mordor', 'The Shire', 'Gondor']
+print(random.choice(list1))
+
+# Output: a random item from list1
+```
+
+Use `random.shuffle()` on a list to shuffle the contents of a list. The list is modified in place. 
+```py
+import random
+list1 = ['Mordor', 'The Shire', 'Gondor']
+print(random.shuffle(list1))
+
+# Output: list1 but rearranged randomly
+```
+
+Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](https://automatetheboringstuff.com/2e/chapter4/)
 
 # Classes
 
@@ -408,12 +509,3 @@ print(menu.is_class_defined())
 ```
 
 Sources: [Learn Python](https://learnpython.com/blog/custom-class-python/), [W3](https://www.w3schools.com/python/python_classes.asp), [Learn Python](https://realpython.com/instance-class-and-static-methods-demystified/), [Python Docs](https://docs.python.org/3/tutorial/classes.html)
-
-
-# Standard library
-
-Python comes pre-built with a standard library, a collection of modules that can be imported into your code as needed. Import a new module using the `import` statement.
-
-### import random
-
-Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](https://automatetheboringstuff.com/2e/chapter4/)
