@@ -1,12 +1,38 @@
 # Python 
 
-A guide on built-in functions, built-in methods, the standard library, and custom class creation. Links to sources are provided where applicable. All examples were used on Python v. 3.10.2
+A guide on built-in functions, built-in methods, classes, and the standard library. All examples were used on Python v. 3.10.2
+
+For error handling, use the `try` and `except` statements. 
+
+```py
+try:
+    print(var)
+except:
+    print('Variable not defined')
+
+# Output: Variable not defined
+```
+
+Use the `except` statement if desired. Point the `except` statement to specific error messages.
+
+```py
+var = 'text'
+
+try:
+    print(var+1)
+except NameError:
+    print('Variable not defined')
+except TypeError:
+    print('Check for int and str')
+
+# Output: Check for int and str
+```
 
 # Built-In Functions
 
 ### range() function with for loops
 
-The range() function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the stopping point integer is not returned. The range() function can also be called directly inside a for loop.
+The `range()` function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the item at the stopping point index is not returned. The `range()` function can also be called directly inside a for loop.
 
 ```py
 for i in range(3):
@@ -17,7 +43,7 @@ for i in range(3):
 # Output: 2
 ```
 
-Optionally, the range() function can receive two arguments: range(start, stop). It can also receive up to three arguments: range(start, stop, step). Start and stop refer to the beginning and ending integers, and step refers to the incrementation. 
+Optionally, the `range()` function can receive two arguments: `range(start, stop)`, or three arguments: `range(start, stop, step)`. Start and stop refer to the beginning and ending integers, and step refers to the incrementation. 
 
 ```py
 x = range(7, 10)
@@ -54,11 +80,29 @@ range() function sources:
 
 https://automatetheboringstuff.com/2e/chapter2/
 
+### print() function keyword arguments
+
+The `print()` function always adds a newline character to the end of the printed output. Use `end=''` as an optional parameter with to eliminate the newline character. Any text entered inside the emptry string will also print.
+
+```py
+print('test1 ', end='')
+print('test2 ', end='test3 ')
+
+# Output: test1 test2 test3
+```
+Use the `sep=''` keyword to separate multiple strings with whatever you choose to place inside the empty string.
+
+```py
+print('1','2','3',sep=', ')
+
+# Output: 1, 2, 3
+```
+
 # Built-In Methods
 
-### upper() and lower() methods:
+### upper() and lower() methods on strings:
 
-The upper() and lower() methods must be called on a string value. They return a new string either in all uppercase or all lowercase.
+Use the `upper()` or `lower()` methods on a string value. This returns a new string in all uppercase or all lowercase.
 
 ```py
 x = 'Abc'
@@ -74,7 +118,7 @@ print(x)
 
 # Classes
 
-In Python, a custom class can be created to organize and store objects using the `class` keyword. If the class is empty, the print statement returns the memory address where the object is stored.
+In Python, a custom class can be created to organize and store objects using the `class` keyword. The print statement returns the name of the class and the memory address where the object is stored.
 
 ```py
 class test_class:
@@ -115,7 +159,7 @@ print(test.number)
 # Output: 5
 ```
 
-The `__init()__` function can receive arguments to assign new values to the class. 
+The `__init()__` function can receive arguments to assign new values to the class. Those values are known as instance attributes, as they are only accesible by that instance of the class. 
 
 ```py
 class menu:
@@ -164,10 +208,6 @@ class menu:
     def __init__(self, entree, dessert):
         self.entree = entree
         self.dessert = dessert
-
-    def display_menu(self):
-        print(self.entree)
-        print(self.dessert)
 
 test = menu("Salmon", "Ice cream")
 test.dessert = "Pie"
