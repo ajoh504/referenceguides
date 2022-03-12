@@ -2,6 +2,8 @@
 
 A guide on built-in functions, built-in methods, classes, and the standard library. All examples were used on Python v. 3.10.2
 
+### try and except statements
+
 For error handling, use the `try` and `except` statements. 
 
 ```py
@@ -13,7 +15,7 @@ except:
 # Output: Variable not defined
 ```
 
-Use the `except` statement if desired. Point the `except` statement to specific error messages.
+Use the `except` statement multiple times if desired. Point the `except` statement to specific error messages.
 
 ```py
 var = 'text'
@@ -28,11 +30,86 @@ except TypeError:
 # Output: Check for int and str
 ```
 
+Use `else` or `finally` as optional statements. The `else` block executes if no errors occured. The `finally` block executes whether or not errors occured.
+
+```py
+try:
+    print(var)
+except:
+    print('Variable not defined')
+else:
+    print('No errors found')
+finally:
+    print('Error handling complete')
+    
+# Output: Variable not defined
+# Output: Error handling complete
+```
+### indexing and slicing
+
+Use indexing notation to slice items from a list or string. Syntax: `list[i:j]` where i is the starting index and j is the stopping index. 
+
+```py
+test = [1, 2, 3, 4, 5, 6]
+test = test[0:2]
+print(test)
+
+# Output: [1, 2]
+```
+
+Use slicing in a `for` loop by adding a numeric value to i. This designates the stopping point as (x) amount + i.
+
+```py
+var = 'abcd'
+for i in range(len(var)):
+    print(var[i:i+3])
+    
+# Output: abc
+# Output: bcd
+# Output: cd
+# Output: d
+```
+
+### Change or delete list items with indexes
+
+Use a list index to change the item in a list. A negative index number begins at the end of the list. 
+
+
+```py
+test = [1, 2, 3, 4, 5, 6]
+test[0] = 'A'
+test[-1] = 'F'
+print(test)
+
+# Output: ['A', 2, 3, 4, 5, 'F']
+```
+Use the `del` keyword to delete a list item. 
+
+```py
+test = [1, 2, 3, 4, 5, 6]
+del test[0]
+del test[-1]
+print(test)
+
+# Output: [2, 3, 4, 5]
+```
+### tuple unpacking 
+
+Tuple unpacking is a shortcut for assigning each item in a list to their own variable. The variable names must equal the number of items in the list or else an error will occur.
+
+```py
+character_list = ['Aragorn', 'Legolas', 'Bilbo']
+human, elf, hobbit = character_list
+print(human, elf)
+
+# Output: Aragorn Legolas
+```
+
 # Built-In Functions
 
 ### range() function with for loops
 
-The `range()` function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the item at the stopping point index is not returned. The `range()` function can also be called directly inside a for loop.
+The `range()` function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the item at the stopping point index is not returned. The `range()` function can also be called directly inside a `for` loop.
 
 ```py
 for i in range(3):
@@ -76,10 +153,37 @@ for i in range(10, 60, 10):
 # Output: 50
 ```
 
-range() function sources:
+range() sources: [ATBS](https://automatetheboringstuff.com/2e/chapter2/)
 
-https://automatetheboringstuff.com/2e/chapter2/
+### range() and len() functions in for loops
 
+Call `len()` inside of `range()` when accessing multiple items in a single list, or when accessing both the index and the item at that index.
+
+
+```py
+character_list = ['Aragorn', 'Legolas', 'Bilbo']
+for i in range(len(character_list)):
+    if character_list[i] == 'Bilbo':
+        print('Hobbit found')
+
+# Output: Hobbit found
+```
+Run the above code without the `len()` function and you'll receive the error: `TypeError: 'list' object cannot be interpreted as an integer` because the `range()` function expects to receive an integer. Run the above code without the `len()` and `range()` functions and you'll receive the error: `TypeError: list indices must be integers or slices, not str` because 
+
+Sources: [SO len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [SO TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [SO TypeError](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
+
+### enumerate() function with for loops
+
+The `enumerate()` function can also be used in a `for` loop instead of `range(len(list))`. The for loop can receive two variables, one for list indices and one for list items.
+```py
+character_list = ['Aragorn', 'Legolas', 'Bilbo']
+for index, item in enumerate(character_list):
+    if character_list[index] == 'Bilbo':
+        print(item, 'found at index', index)
+
+# Output: Bilbo found at index 2
+
+```
 ### print() function keyword arguments
 
 The `print()` function always adds a newline character to the end of the printed output. Use `end=''` as an optional parameter with to eliminate the newline character. Any text entered inside the emptry string will also print.
@@ -303,15 +407,7 @@ print(menu.is_class_defined())
 # Output: True
 ```
 
-Sources for Python classes: 
-
-https://learnpython.com/blog/custom-class-python/
-
-https://www.w3schools.com/python/python_classes.asp
-
-https://realpython.com/instance-class-and-static-methods-demystified/
-
-https://docs.python.org/3/tutorial/classes.html
+Sources: [Learn Python](https://learnpython.com/blog/custom-class-python/), [W3](https://www.w3schools.com/python/python_classes.asp), [Learn Python](https://realpython.com/instance-class-and-static-methods-demystified/), [Python Docs](https://docs.python.org/3/tutorial/classes.html)
 
 
 # Standard library
@@ -320,6 +416,4 @@ Python comes pre-built with a standard library, a collection of modules that can
 
 ### import random
 
-Standard library sources:
-
-https://automatetheboringstuff.com/2e/chapter2/
+Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](https://automatetheboringstuff.com/2e/chapter4/)
