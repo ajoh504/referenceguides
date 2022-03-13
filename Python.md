@@ -546,6 +546,10 @@ Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](
 
 Use `copy.copy()` to copy the contents of one variable to another. Use `copy.deepcopy()` if the contents contain lists within lists. 
 
+### import re
+
+
+
 # Third-party modules
 
 ### import pyperclip
