@@ -1,5 +1,5 @@
 # Python 
-A guide on built-in functions, built-in methods, classes, and the standard library. All examples were used on Python v. 3.10.2
+A guide on built-in functions, built-in methods, the standard library, third-party modules, and classes. All examples were used on Python v. 3.10.2
 
 ### try and except statements
 
@@ -69,7 +69,11 @@ for i in range(len(var)):
 # Output: d
 ```
 
-### Change or delete list items with indexes
+Use negative numbers to begin at the ending index: `test[-1]`
+
+Leave the starting or ending index empty to designate as either the first or last index: `test[:5]` or `test[5:]` 
+
+### Change or delete list items with indices
 
 Use a list index to change the item in a list. A negative index number begins at the end of the list. 
 
@@ -102,6 +106,43 @@ human, elf, hobbit = character_list
 print(human, elf)
 
 # Output: Aragorn Legolas
+```
+### Escape characters
+
+Single quote: `\'`
+
+Double quote: `\"`
+
+Tab: `\t`
+
+Newline: `\n`
+
+Backslash: `\\`
+
+Raw string (use to ignore escape characters: `r`
+
+### String interpolation and f-strings 
+
+Using the `%s` operator within a string to designate where to add new strings. 
+
+```py
+var1 = 'bow'
+var2 = 'axe'
+string1 = 'Legolas used a %s, but Gimli preferred an %s.' % (var1, var2)
+print(string1)
+
+# Output: Legolas used a bow, but Gimli preferred an axe.
+
+```
+f-strings are similar, except the expression is placed inside of the string. Place `f` in front of the string to edit, and place the variables between `{}`.
+
+```py
+var1 = 'bow'
+var2 = 'axe'
+string1 = f'Legolas used a {var1}, but Gimli preferred an {var2}." 
+print(string1)
+
+# Output: Legolas used a bow, but Gimli preferred an axe.
 ```
 
 # Built-In Functions
@@ -315,6 +356,90 @@ print(x)
 # Output: 'ABC'
 # Output: 'abc'
 ```
+
+Use `isupper()` or `islower()` to return a Boolean value, i.e. `True` or `False` if the string is all upper or lowercase. 
+
+```py
+x = 'ABC'
+print(x.isupper())
+
+# Output: True
+```
+
+### startswith() and endswith()
+
+Use `startswith()` or `endswith()` to return a Boolean value, i.e. `True` or `False` if the string is all upper or lowercase. 
+
+```py
+x = 'ABC'
+print(x.startswith('a'))
+
+# Output: False
+```
+### join() and split() 
+
+Pass a list of strings to the `join()` method to return a new string value, with all items in the list concatenated. Preface `join()` with a required string value. Both `join()` and `split()` can act upon the escape characters.  
+```py
+x = ['abc', 'def']
+x = ', '.join(x)
+print(x)
+
+# Output: abc, def
+
+```
+Use `split()` to break apart a string value into list. 
+```py
+x = 'abc, def'
+x = x.split(', ')
+print(x)
+
+# Output: ['abc', 'def']
+
+```
+### rjust(), ljust(), and center()
+
+Use `rjust()`, `ljust()`, or `center()` to justify text. A numeric argument is required to specify the number of spaces to justify. The character count of the string is included in this number.
+```py
+x = 'Flesh wound'
+x = x.rjust(13)
+print(x)
+
+# Output:   Flesh wound
+```
+### strip(), rstrip(), and lstrip()
+
+Use `strip()`, `rstrip()`, and `lstrip()` to remove whitespace characters (space, tab, and newline). `rstrip()` and `lstrip()` remove spaces from those sides respectively, and `strip()` removes spaces from both sides. 
+
+```py
+x = '          Flesh wound'
+x = x.lstrip()
+print(x)
+
+# Output: Flesh wound
+```
+Add an optional string value to be removed instead of the whitespace. 
+
+```py
+x = 'Flesh wound'
+x = x.lstrip('Flesh')
+print(x)
+
+# Output: wound
+```
+
+From [ATBS Ch 6:](https://automatetheboringstuff.com/2e/chapter6/)
+
+> isalpha() Returns True if the string consists only of letters and isn’t blank
+> 
+> isalnum() Returns True if the string consists only of letters and numbers and is not blank
+> 
+> isdecimal() Returns True if the string consists only of numeric characters and is not blank
+> 
+> isspace() Returns True if the string consists only of spaces, tabs, and newlines and is not blank
+> 
+> istitle() Returns True if the string consists only of words that begin with an uppercase letter followed by only lowercase letters
+
+
 ### index() method on iterable data types
 
 Use the `index()` method on lists, tuples, or strings to return the index value of the given item. 
@@ -420,6 +545,13 @@ Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](
 ### import copy
 
 Use `copy.copy()` to copy the contents of one variable to another. Use `copy.deepcopy()` if the contents contain lists within lists. 
+
+# Third-party modules
+
+### import pyperclip
+
+The pyperclip module comes with the `copy()` and `paste()` functions, which act directly on the computer's keyboard. 
+
 
 # Classes
 
