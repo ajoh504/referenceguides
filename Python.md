@@ -546,9 +546,35 @@ Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](
 
 Use `copy.copy()` to copy the contents of one variable to another. Use `copy.deepcopy()` if the contents contain lists within lists. 
 
-### import re
+### import re / regex
 
+The `re` module allows you to find patterns of text with regular expressionss, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses. 
 
+To search for a US phone number, use the pattern `\(\d\d\d\) \d\d\d-\d\d\d\d` or `(\d{3}) \d{3}-\d{4}` where `{3}` denotes how many `\d`'s to search for. Pass the regex pattern as a string value to `re.compile()` with the `r` string prefix. Note that the space after the area code is a part of the pattern.
+
+```py
+import re
+us_phone_regex = re.compile(r'(\d\d\d) \d\d\d-\d\d\d\d')
+
+```
+Pass a string to the `search()` method to see if it matches the pattern stored in the regex object. `None` is returned if the pattern is not found. A match object is returned if the pattern is found. 
+
+```py
+import re
+us_phone_regex = re.compile(r'\(\d\d\d\) \d\d\d-\d\d\d\d')
+num_search = us_phone_regex.search('(555) 555-1234')
+print('Phone is a valid US number:', num_search.group())
+
+# Output: Phone is a valid US number: (555) 555-1234
+```
+
+In the above example, `num_search` is the variable where the match object is stored. Calling the variable on the `group()` method returns the pattern match. 
+
+### groups within regex objects
+
+`\(` or `\)` allow the parentheses to be part of the string. But parentheses can be used without `\` to create groups within the regex. 
+
+Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/)
 
 # Third-party modules
 
