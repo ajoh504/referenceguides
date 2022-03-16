@@ -563,6 +563,7 @@ Pass a string to the `search()` method to see if it matches the pattern stored i
 import re
 us_phone_regex = re.compile(r'\(\d\d\d\) \d\d\d-\d\d\d\d')
 num_search = us_phone_regex.search('(555) 555-1234')
+
 print('Phone is a valid US number:', num_search.group())
 
 # Output: Phone is a valid US number: (555) 555-1234
@@ -573,6 +574,81 @@ In the above example, `num_search` is the variable where the match object is sto
 ### groups within regex objects
 
 `\(` or `\)` allow the parentheses to be part of the string. But parentheses can be used without `\` to create groups within the regex. 
+
+Using the code sample from above, we'll separate the phone number into two groups: the area code, and the last seven digits. Since the backslashes denote the parenthese as part of the string, all we need to do is surround each group with a new set of parentheses and leave out the backslash. So the area code from before looks like this: `\(\d\d\d\)`. To separate it into a group, we'll surround it with parentheses: `(\(\d\d\d\))`. Then we'll surround the last seven digits with parentheses: `(\d\d\d-\d\d\d\d)`. The final regex will look like this: `\(\d\d\d\) (\d\d\d-\d\d\d\d)`.
+
+To view the match object by group, we call the object using the `group()` method. Passing no argument or `0` into the `group()` method returns the entire match.
+
+```py
+import re
+us_phone_regex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
+num_search = us_phone_regex.search('(555) 555-1234')
+
+x = num_search.group()
+y = num_search.group(0)
+
+print(x)
+print(y)
+
+# Output: Phone is a valid US number: (555) 555-1234
+# Output: Phone is a valid US number: (555) 555-1234
+```
+
+As shown above, the output of `group()` and `group(0)` are the same. Passing `1` into `group(1)` will return the first group only. `2` will return the second group.
+
+```py
+import re
+us_phone_regex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
+num_search = us_phone_regex.search('(555) 555-1234')
+
+x = num_search.group(1)
+y = num_search.group(2)
+
+print(x)
+print(y)
+
+# Output: (555) 
+# Output: 555-1234
+```
+
+Using `groups()` in the plural form prints a tuple of all groups stored in the match object. 
+
+```py
+import re
+us_phone_regex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
+num_search = us_phone_regex.search('(555) 555-1234')
+
+x = num_search.groups()
+
+print(x)
+
+
+# Output: ('(555)', '555-1234')
+
+```
+
+### Multiple assignment with regex groups
+
+Use the multiple assignment trick to assign the groups to variables
+
+```py
+import re
+us_phone_regex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
+num_search = us_phone_regex.search('(555) 555-1234')
+
+area_code, suffix = num_search.groups()
+
+print(area_code)
+print(suffix)
+
+# Output: '(555)'
+# Output: '555-1234'
+
+```
+
+### Pipe character with regex groups
+
+
 
 Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/)
 
