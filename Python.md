@@ -648,7 +648,15 @@ print(suffix)
 
 ### Pipe character with regex groups
 
+### regex and the pipe operator
 
+The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurence of any string in the regular expression
+
+```py
+import re
+
+us
+```
 
 Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/)
 
