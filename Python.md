@@ -654,8 +654,10 @@ The pipe `|` operator works similarly to a logical `or` operator. Using `|` in r
 
 ```py
 import re
+us_area_code = re.compile(r'(\(\d{3}\))|(\d{3})')
+area_code_mo = us_area_code.search('(555)-555-5555')
+print(area_code_mo.group())
 
-us
 ```
 
 Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/)
