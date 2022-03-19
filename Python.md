@@ -1,7 +1,7 @@
-# Python 
+# 1. Python 
 A guide on built-in functions, built-in methods, the standard library, third-party modules, and classes. All examples were used on Python v. 3.10.2
 
-### try and except statements
+### 1.1. try and except statements
 
 For error handling, use the `try` and `except` statements. 
 
@@ -44,7 +44,7 @@ finally:
 # Output: Variable not defined
 # Output: Error handling complete
 ```
-### indexing and slicing
+### 1.2. indexing and slicing
 
 Use indexing notation to slice items from a list or string. Syntax: `list[i:j]` where i is the starting index and j is the stopping index. 
 
@@ -73,7 +73,7 @@ Use negative numbers to begin at the ending index: `test[-1]`
 
 Leave the starting or ending index empty to designate as either the first or last index: `test[:5]` or `test[5:]` 
 
-### Change or delete list items with indices
+### 1.3. Change or delete list items with indices
 
 Use a list index to change the item in a list. A negative index number begins at the end of the list. 
 
@@ -96,7 +96,7 @@ print(test)
 
 # Output: [2, 3, 4, 5]
 ```
-### tuple unpacking 
+### 1.4. tuple unpacking/multiple assignment
 
 Tuple unpacking is a shortcut for assigning each item in a list to their own variable. The variable names must equal the number of items in the list or else an error will occur.
 
@@ -107,7 +107,7 @@ print(human, elf)
 
 # Output: Aragorn Legolas
 ```
-### Escape characters
+### 1.5. Escape characters
 
 Single quote: `\'`
 
@@ -119,9 +119,9 @@ Newline: `\n`
 
 Backslash: `\\`
 
-Raw string (use to ignore escape characters: `r`
+Raw string (use to ignore escape characters: `r`)
 
-### String interpolation and f-strings 
+### 1.6. String interpolation and f-strings 
 
 Using the `%s` operator within a string to designate where to add new strings. 
 
@@ -145,9 +145,9 @@ print(string1)
 # Output: Legolas used a bow, but Gimli preferred an axe.
 ```
 
-# Built-In Functions
+# 2. Built-In Functions
 
-### range() function with for loops
+### 2.1. range() function with for loops
 
 The `range()` function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the item at the stopping point index is not returned. The `range()` function can also be called directly inside a `for` loop.
 
@@ -195,7 +195,7 @@ for i in range(10, 60, 10):
 
 range() sources: [ATBS](https://automatetheboringstuff.com/2e/chapter2/)
 
-### range() and len() functions in for loops
+### 2.2. range() and len() functions with for loops
 
 Call `len()` inside of `range()` when accessing multiple items in a single list, or when accessing both the index and the item at that index.
 
@@ -212,7 +212,7 @@ Run the above code without the `len()` function and you'll receive the error: `T
 
 Sources: [SO len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [SO TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [SO TypeError](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
 
-### enumerate() function with for loops
+### 2.3. enumerate() function with for loops
 
 The `enumerate()` function can also be used in a `for` loop instead of `range(len(list))`. The for loop can receive two variables, one for list indices and one for list items.
 ```py
@@ -224,7 +224,7 @@ for index, item in enumerate(character_list):
 # Output: Bilbo found at index 2
 
 ```
-### print() function keyword arguments
+### 2.4. print() function keyword arguments
 
 The `print()` function always adds a newline character to the end of the printed output. Use `end=''` as an optional parameter with to eliminate the newline character. Any text entered inside the emptry string will also print.
 
@@ -241,7 +241,7 @@ print('1','2','3',sep=', ')
 
 # Output: 1, 2, 3
 ```
-### list() and tuple() 
+### 2.5. list() and tuple() functions
 
 Convert a list to a tuple, or vice versa, using either the `list()` or `tuple()` function. Both functions work with strings. 
 ```py
@@ -259,7 +259,7 @@ print(character)
 # Output: ['A', 'r', 'a', 'g', 'o', 'r', 'n']
 ```
 
-### id() function returns the memory address where the object is stored. 
+### 2.6. id() function returns the memory address where the object is stored
 ```py
 character = 'Aragorn'
 print(id(character))
@@ -268,9 +268,9 @@ print(id(character))
 
 ```
 
-# Built-In Methods
+# 3. Built-In Methods
 
-### keys(), values(), and items() on dictionaries
+### 3.1. calling keys(), values(), and items() on dictionaries
 
 The `keys()`, `values`, and `items()` methods can be used to loop through the contents of a dictionary. 
 
@@ -318,7 +318,7 @@ print(Gimli.get('Home', 'No home found'))
 
 # Output: No home found
 ```
-### setdefault() with dictionaries
+### 3.2. setdefault() with dictionaries
 
 The `setdefault()` method adds a key and sets its default value. If the key is already stored in the dictionary, it returns the value.
 ```py
@@ -341,7 +341,7 @@ print(Shire)
 # Output: {'Location': 'Middle Earth', 'Inhabitants': 'Hobbits', 'Farmland': True}
 ```
 
-### upper() and lower() on strings
+### 3.3. upper() and lower() methods with strings
 
 Use the `upper()` or `lower()` methods on a string value. This returns a new string in all uppercase or all lowercase.
 
@@ -366,7 +366,7 @@ print(x.isupper())
 # Output: True
 ```
 
-### startswith() and endswith()
+### 3.4. startswith() and endswith() with strings
 
 Use `startswith()` or `endswith()` to return a Boolean value, i.e. `True` or `False` if the string is all upper or lowercase. 
 
@@ -376,7 +376,7 @@ print(x.startswith('a'))
 
 # Output: False
 ```
-### join() and split() 
+### 3.5. join() and split() with a list of strings
 
 Pass a list of strings to the `join()` method to return a new string value, with all items in the list concatenated. Preface `join()` with a required string value. Both `join()` and `split()` can act upon the escape characters.  
 ```py
@@ -396,7 +396,7 @@ print(x)
 # Output: ['abc', 'def']
 
 ```
-### rjust(), ljust(), and center()
+### 3.6. rjust(), ljust(), and center() to justify text
 
 Use `rjust()`, `ljust()`, or `center()` to justify text. A numeric argument is required to specify the number of spaces to justify. The character count of the string is included in this number.
 ```py
@@ -406,7 +406,7 @@ print(x)
 
 # Output:   Flesh wound
 ```
-### strip(), rstrip(), and lstrip()
+### 3.7. strip(), rstrip(), and lstrip() to remove whitespace characters
 
 Use `strip()`, `rstrip()`, and `lstrip()` to remove whitespace characters (space, tab, and newline). `rstrip()` and `lstrip()` remove spaces from those sides respectively, and `strip()` removes spaces from both sides. 
 
@@ -440,7 +440,7 @@ From [ATBS Ch 6:](https://automatetheboringstuff.com/2e/chapter6/)
 > istitle() Returns True if the string consists only of words that begin with an uppercase letter followed by only lowercase letters
 
 
-### index() method on iterable data types
+### 3.8. index() method on iterable data types
 
 Use the `index()` method on lists, tuples, or strings to return the index value of the given item. 
 
@@ -451,7 +451,7 @@ print(list1.index('test1'))
 # Output: 0
 ```
 
-### append(), insert(), remove(), sort(), and reverse()  
+### 3.9. append(), insert(), remove(), sort(), and reverse() with lists
 
 Use `append()` on a list to append an item to the end of the list. Both methods modify the list in place, so the return value is `None`.
 
@@ -507,11 +507,11 @@ print(test)
 # Output: [1, 2, 3, 4, 5]
 ```
 
-# Standard library
+# 4. Standard library
 
 Python comes pre-built with a standard library, a collection of modules that can be imported into your code as needed. Import a new module using the `import` statement.
 
-### import random
+### 4.1. import random
 
 Use `random.randint()` on a range of numbers to return a random number. 
 ```py
@@ -542,11 +542,11 @@ print(random.shuffle(list1))
 
 Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](https://automatetheboringstuff.com/2e/chapter4/)
 
-### import copy
+### 4.2. import copy
 
 Use `copy.copy()` to copy the contents of one variable to another. Use `copy.deepcopy()` if the contents contain lists within lists. 
 
-### import re / regex
+### 4.3. import re / regex
 
 The `re` module allows you to find patterns of text with regular expressionss, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses. 
 
@@ -571,7 +571,7 @@ print('Phone is a valid US number:', num_search.group())
 
 In the above example, `num_search` is the variable where the match object is stored. Calling the variable on the `group()` method returns the pattern match. 
 
-### groups within regex objects
+### 4.4. groups within regex objects
 
 `\(` or `\)` allow the parentheses to be part of the string. But parentheses can be used without `\` to create groups within the regex. 
 
@@ -627,7 +627,7 @@ print(x)
 
 ```
 
-### Multiple assignment with regex groups
+### 4.5. Multiple assignment with regex groups
 
 Use the multiple assignment trick to assign the groups to variables
 
@@ -646,30 +646,144 @@ print(suffix)
 
 ```
 
-### Pipe character with regex groups
+### 4.6. Pipe character with regex groups
 
-### regex and the pipe operator
-
-The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurence of any string in the regular expression
+The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurence of any string in the regular expression. In the following code, we'll create a regex to search for a US area code in two formats: `'555'` or `'(555)'`. Separating the two formats with the `|` operator will return the first occurence of either. Recall that using `\d{3}` tells the interpreter to use `\d` three times. 
 
 ```py
 import re
 us_area_code = re.compile(r'(\(\d{3}\))|(\d{3})')
-area_code_mo = us_area_code.search('(555)-555-5555')
-print(area_code_mo.group())
+area_code_mo = us_area_code.search('(555) 555-5555')
+x = area_code_mo.group()
+print(x)
+
+# Output: (555)
+```
+The following section is from [ATBS CH7:](https://automatetheboringstuff.com/2e/chapter7/)
+
+> You can also use the pipe to match one of several patterns as part of your regex. For example, say you wanted to match any of the strings 'Batman', > 'Batmobile', 'Batcopter', and 'Batbat'. Since all these strings start with Bat, it would be nice if you could specify that prefix only once. This can be > done with parentheses. Enter the following into the interactive shell:
+> 
+> >>> batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
+> >>> mo = batRegex.search('Batmobile lost a wheel')
+> >>> mo.group()
+> 'Batmobile'
+> >>> mo.group(1)
+> 'mobile'
+
+In the above text, 'Bat' is used almost as a prefix to the group `(man|mobile|copter|bat)`. The same method can be used as a suffix. Next we'll create a regex that searches for an entire US phone number, but we'll group the area codes first, and use the rest of the phone number as a suffix. The format will be like this: `'((555)|555) 555-5555'`. Two area code formats are grouped together: `(555)` and `555` because they're contained within parentheses and separated by the pipe operator. The second part of the phone number, ` 555-5555`, is used almost as a suffix. The interpreter will search for that exact string. For readability, I'll write out the regex in long form instead of using `\d{3}`
+
+```py
+import re
+us_phone_number = re.compile(r'(\(\d\d\d\)|\d\d\d) \d\d\d-\d\d\d\d')
+number_mo = us_phone_number.search('(555) 555-5555')
+x = number_mo.group()
+print(x)
+
+# Output: (555) 555-5555
+
+```
+### 4.7. Optional matching with the regex question mark
+
+Previously, the code contains a space between the area code and the rest of the phone number. Not all phone numbers contain a space at that position; sometimes numbers are written as `(555)555-5555`. The space can be made optional by using parentheses with a question mark at the end and placing a single space in the middle: `( )?`. 
+
+```py
+import re
+us_phone_number = re.compile(r'(\(\d\d\d\)|\d\d\d)( )?\d\d\d-\d\d\d\d')
+number_mo = us_phone_number.search('(555)555-5555')
+x = number_mo.group()
+print(x)
+
+# Output: (555)555-5555
+```
+### 4.8. asterisk and plus sign with regex groups
+
+The `*` symbol before a group matches 0 or more of any string designated in that group. The `+` sign matches 1 or more of any string designated within that group.
+
+### 4.9. Use braces in regex to set a range
+
+We previously covered using braces to designate how many times to search for a given string. `\d{3}` searches for three digits. The braces can also be used to set a range. `\d{1,10}` will return the first occurence of any string within that range.
+
+```py
+import re
+number = re.compile(r'\d{1,10}')
+number_mo = number.search('5555555')
+x = number_mo.group()
+print(x)
+
+# Output: 555
 
 ```
 
-Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/)
+### 4.10. regex greedy vs. non-greedy
 
-# Third-party modules
+Python is greedy be default. In other words, it always matches the longest possible string within a range. To return the shortest possible string instead, use the `?`. Note that the question mark in this context is different than using it to designate an optional string. 
 
-### import pyperclip
+```py
+import re
+number = re.compile(r'\d{1,10}?')
+number_mo = number.search('5555555')
+x = number_mo.group()
+print(x)
+
+# Output: 5
+```
+
+### 4.11. The findall() method with regex
+
+While the `search()` method returns the first occurence of the given string in the regex, the `findall()` method returns a list with every matching string as long as there are no groups. If there is no match, Python returns an empty string. 
+
+```py
+import re
+us_phone_number = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
+x = us_phone_number.findall('555-555-5555')
+print(x)
+
+# Output: ['555-555-5555']
+```
+
+### 4.12. Regex findall() with groups
+
+The following comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
+
+> If there are groups in the regular expression, then findall() will return a list of tuples. Each tuple represents a found match, and its items are the matched strings for each group in the regex. To see findall() in action, enter the following into the interactive shell (notice that the regular expression being compiled now has groups in parentheses):
+> 
+> >>> phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups
+> >>> phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')
+> [('415', '555', '9999'), ('212', '555', '0000')]
+> 
+> To summarize what the findall() method returns, remember the following:
+> 
+>     When called on a regex with no groups, such as \d\d\d-\d\d\d-\d\d\d\d, the method findall() returns a list of string matches, such as ['415-555-9999', '212-555-0000'].
+>     When called on a regex that has groups, such as (\d\d\d)-(\d\d\d)-(\d\d\d\d), the method findall() returns a list of tuples of strings (one string for each group), such as [('415', '555', '9999'), ('212', '555', '0000')].
+
+### 4.13. Regex character classes
+
+The following table comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
+
+> In the earlier phone number regex example, you learned that \d could stand for any numeric digit. That is, \d is shorthand for the regular expression (0|1|2|3|4|5|6|7|8|9).
+> 
+> \d	Any numeric digit from 0 to 9.
+> 
+> \D	Any character that is not a numeric digit from 0 to 9.
+> 
+> \w	Any letter, numeric digit, or the underscore character. (Think of this as matching “word” characters.)
+> 
+> \W	Any character that is not a letter, numeric digit, or the underscore character.
+> 
+> \s	Any space, tab, or newline character. (Think of this as matching “space” characters.)
+> 
+> \S	Any character that is not a space, tab, or newline.
+
+Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs](https://docs.python.org/3/library/re.html)
+
+# 5. Third-party modules
+
+### 5.1. import pyperclip
 
 The pyperclip module comes with the `copy()` and `paste()` functions, which act directly on the computer's keyboard. 
 
 
-# Classes
+# 6. Classes
 
 In Python, a custom class can be created to organize and store objects using the `class` keyword. The print statement returns the name of the class and the memory address where the object is stored.
 
@@ -697,7 +811,7 @@ print(test.y)
 # Output: 5
 # Output: 6
 ```
-### __init__() and self
+### 6.1. __init__() and self
 
 The `self` keyword is a parameter that refers to the current instance of the class. It is passed to the `__init__()` function, which is used to create new instances of that class. In this next example, we'll create a new instance called `number` and assign it a value of `5`.
 
@@ -728,7 +842,7 @@ print(test.dessert)
 # Output: Ice cream
 ```
 
-### Class attributes vs. instance attributes
+### 6.2. Class attributes vs. instance attributes
 
 Class attributes refer to variables defined within the class, and are shared by all instances of that class. To update the "menu" class, we can add an attribute that describes what type of menu it is. The instance attributes are already definied within the __init__() function as `self.entree = entree` and `self.dessert = dessert`
 
@@ -750,7 +864,7 @@ print(test.attr)
 # Output: Dinner menu
 ```
 
-### Editing or deleting class attributes
+### 6.3. Editing or deleting class attributes
 
 Class attributes can be edited just like the key/value pairs of an object. The `del` keyword can be used to delete an attribute or an entire object.
 
@@ -772,7 +886,7 @@ print(test.entree)
 # Output: AttributeError: 'menu' object has no attribute 'entree'
 ```
 
-### Instance methods
+### 6.4. Instance methods
 
 Classes can also contain methods, which are functions that can be called when invoking the class name. The following instance method is called `display_menu()` and it prints all the contents of the menu class. 
 
@@ -792,7 +906,7 @@ test.display_menu()
 # Output: Salmon
 # Output: Ice cream
 ```
-### Class methods
+### 6.5. Class methods
 
 In Python 3.x, class methods are denoted with `@classmethod` decorator and take the `cls` parameter. Unlike instance methods, class methods cannot access the attributes of an object. However, a class method can change properties of the class that are accessible to the entire class. The following class method when called allows you to pass an argument that changes the class attribute.
 
@@ -823,7 +937,7 @@ print(menu.attr)
 
 # Output: Lunch menu
 ```
-### Static methods
+### 6.6. Static methods
 
 In Python 3.x, static methods are denoted with the `@staticmethod` decorator and do not take the `cls` or `self` parameters. Static methods are standard functions that can be accessed by calling the object instance followed by the function name, such as `obj.static_method()`. They can also be called as standalone functions without an object instance, such as `static_method()`. A static method cannot modify the class state or instance state. 
 
