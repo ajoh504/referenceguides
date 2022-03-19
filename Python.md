@@ -546,7 +546,7 @@ Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](
 
 Use `copy.copy()` to copy the contents of one variable to another. Use `copy.deepcopy()` if the contents contain lists within lists. 
 
-### 4.3. import re / regex
+# 5. import re / regex
 
 The `re` module allows you to find patterns of text with regular expressionss, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses. 
 
@@ -571,7 +571,7 @@ print('Phone is a valid US number:', num_search.group())
 
 In the above example, `num_search` is the variable where the match object is stored. Calling the variable on the `group()` method returns the pattern match. 
 
-### 4.4. groups within regex objects
+### 5.1. groups within regex objects
 
 `\(` or `\)` allow the parentheses to be part of the string. But parentheses can be used without `\` to create groups within the regex. 
 
@@ -581,12 +581,11 @@ To view the match object by group, we call the object using the `group()` method
 
 ```py
 import re
+
 us_phone_regex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
 num_search = us_phone_regex.search('(555) 555-1234')
-
 x = num_search.group()
 y = num_search.group(0)
-
 print(x)
 print(y)
 
@@ -598,12 +597,11 @@ As shown above, the output of `group()` and `group(0)` are the same. Passing `1`
 
 ```py
 import re
+
 us_phone_regex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
 num_search = us_phone_regex.search('(555) 555-1234')
-
 x = num_search.group(1)
 y = num_search.group(2)
-
 print(x)
 print(y)
 
@@ -615,29 +613,26 @@ Using `groups()` in the plural form prints a tuple of all groups stored in the m
 
 ```py
 import re
+
 us_phone_regex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
 num_search = us_phone_regex.search('(555) 555-1234')
-
 x = num_search.groups()
-
 print(x)
-
 
 # Output: ('(555)', '555-1234')
 
 ```
 
-### 4.5. Multiple assignment with regex groups
+### 5.2. Multiple assignment with regex groups
 
 Use the multiple assignment trick to assign the groups to variables
 
 ```py
 import re
+
 us_phone_regex = re.compile(r'(\(\d\d\d\)) (\d\d\d-\d\d\d\d)')
 num_search = us_phone_regex.search('(555) 555-1234')
-
 area_code, suffix = num_search.groups()
-
 print(area_code)
 print(suffix)
 
@@ -646,12 +641,13 @@ print(suffix)
 
 ```
 
-### 4.6. Pipe character with regex groups
+### 5.3. Pipe character with regex groups
 
 The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurence of any string in the regular expression. In the following code, we'll create a regex to search for a US area code in two formats: `'555'` or `'(555)'`. Separating the two formats with the `|` operator will return the first occurence of either. Recall that using `\d{3}` tells the interpreter to use `\d` three times. 
 
 ```py
 import re
+
 us_area_code = re.compile(r'(\(\d{3}\))|(\d{3})')
 area_code_mo = us_area_code.search('(555) 555-5555')
 x = area_code_mo.group()
@@ -674,6 +670,7 @@ In the above text, 'Bat' is used almost as a prefix to the group `(man|mobile|co
 
 ```py
 import re
+
 us_phone_number = re.compile(r'(\(\d\d\d\)|\d\d\d) \d\d\d-\d\d\d\d')
 number_mo = us_phone_number.search('(555) 555-5555')
 x = number_mo.group()
@@ -682,12 +679,13 @@ print(x)
 # Output: (555) 555-5555
 
 ```
-### 4.7. Optional matching with the regex question mark
+### 5.4. Optional matching with the regex question mark
 
 Previously, the code contains a space between the area code and the rest of the phone number. Not all phone numbers contain a space at that position; sometimes numbers are written as `(555)555-5555`. The space can be made optional by using parentheses with a question mark at the end and placing a single space in the middle: `( )?`. 
 
 ```py
 import re
+
 us_phone_number = re.compile(r'(\(\d\d\d\)|\d\d\d)( )?\d\d\d-\d\d\d\d')
 number_mo = us_phone_number.search('(555)555-5555')
 x = number_mo.group()
@@ -695,16 +693,17 @@ print(x)
 
 # Output: (555)555-5555
 ```
-### 4.8. asterisk and plus sign with regex groups
+### 5.5. asterisk and plus sign with regex groups
 
 The `*` symbol before a group matches 0 or more of any string designated in that group. The `+` sign matches 1 or more of any string designated within that group.
 
-### 4.9. Use braces in regex to set a range
+### 5.6. Use braces in regex to set a range
 
 We previously covered using braces to designate how many times to search for a given string. `\d{3}` searches for three digits. The braces can also be used to set a range. `\d{1,10}` will return the first occurence of any string within that range.
 
 ```py
 import re
+
 number = re.compile(r'\d{1,10}')
 number_mo = number.search('5555555')
 x = number_mo.group()
@@ -714,12 +713,13 @@ print(x)
 
 ```
 
-### 4.10. regex greedy vs. non-greedy
+### 5.7. regex greedy vs. non-greedy
 
 Python is greedy be default. In other words, it always matches the longest possible string within a range. To return the shortest possible string instead, use the `?`. Note that the question mark in this context is different than using it to designate an optional string. 
 
 ```py
 import re
+
 number = re.compile(r'\d{1,10}?')
 number_mo = number.search('5555555')
 x = number_mo.group()
@@ -728,12 +728,13 @@ print(x)
 # Output: 5
 ```
 
-### 4.11. The findall() method with regex
+### 5.8. The findall() method with regex
 
 While the `search()` method returns the first occurence of the given string in the regex, the `findall()` method returns a list with every matching string as long as there are no groups. If there is no match, Python returns an empty string. 
 
 ```py
 import re
+
 us_phone_number = re.compile(r'\d\d\d-\d\d\d-\d\d\d\d')
 x = us_phone_number.findall('555-555-5555')
 print(x)
@@ -741,7 +742,7 @@ print(x)
 # Output: ['555-555-5555']
 ```
 
-### 4.12. Regex findall() with groups
+### 5.9. Regex findall() with groups
 
 The following comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
@@ -756,7 +757,7 @@ The following comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chap
 >     When called on a regex with no groups, such as \d\d\d-\d\d\d-\d\d\d\d, the method findall() returns a list of string matches, such as ['415-555-9999', '212-555-0000'].
 >     When called on a regex that has groups, such as (\d\d\d)-(\d\d\d)-(\d\d\d\d), the method findall() returns a list of tuples of strings (one string for each group), such as [('415', '555', '9999'), ('212', '555', '0000')].
 
-### 4.13. Regex character classes
+### 5.10. Regex character classes
 
 The following table comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
@@ -774,16 +775,159 @@ The following table comes from [ATBS CH 7:](https://automatetheboringstuff.com/2
 > 
 > \S	Any character that is not a space, tab, or newline.
 
+```py
+import re
+
+test_regex = re.compile(r'\d+\s+\w+')
+x = test_regex.findall('7 Samurai')
+print(x)
+
+# Output: ['7 Samurai', '7 samurai']
+```
+
+### 5.11 Regex custom classes
+
+Python allows you to create custom classes that function similarly to character classes. For example, there is no class for letters only. But ranges can be set for letters to create a custom class: `[a-zA-z]`. When using regular expression characters inside brackets, the backslash is not needed. For example, `[a-zA-z?!.:;]` searches for all letters plus the punctuation signs. 
+
+Using the caret symbol after the opening bracket creates a negative character class. `[^a-zA-z]` returns all values except letters. 
+
+### 5.12 Beginning and ending symbols with regex
+
+Use the caret symbol at the beginning of a regex to return a match object that begins with the designated string.
+
+```py
+import re
+
+test_regex = re.compile('^\d')
+test_mo = test_regex.search('7 Samurai')
+x = test_mo.group()
+print(x)
+
+# Output: 7
+```
+Use the dollar sign at the end of a regex to return a match object that ends with the designated string.
+
+```py
+import re
+
+test_regex = re.compile(r'\d$')
+test_mo = test_regex.search('Lucky Number 7')
+x = test_mo.group()
+print(x)
+
+# Output: 7
+```
+### 5.13 Wildcard symbol
+
+The period is the wildcard symbol in regexes. It returns any character at that desigation. 
+
+```py
+import re
+
+test_regex = re.compile(r'xy.')
+test_mo = test_regex.search('xyz')
+x = test_mo.group()
+print(x)
+
+# Output: xyz
+```
+
+### 5.14 Dot-star and re.DOTALL
+
+The dot-star matches everything except newline characters.
+
+```py
+import re
+
+test_regex = re.compile(r'abc.*')
+test_mo = test_regex.search('abc_xyz\nabc')
+x = test_mo.group()
+print(x)
+
+# Output: abc_xyz
+```
+
+Using `re.DOTALL` as an optional argument in `re.compile()` forces the dot-star to match all characters.
+
+
+```py
+import re
+
+test_regex = re.compile(r'abc.*', re.DOTALL)
+test_mo = test_regex.search('abc_xyz\nabc')
+x = test_mo.group()
+print(x)
+
+# Output: abc_xyz
+# Output: abc
+```
+
+### 5.15 re.IGNORECASE and re.I
+
+Pass `re.IGNORECASE` or `re.I` as optional arguments to `re.compile()` to ignore case sensitivity. 
+
+```py
+import re
+
+test_regex = re.compile(r'abc', re.I)
+test_mo = test_regex.search('Abc')
+x = test_mo.group()
+print(x)
+
+# Output: abc_xyz
+```
+
+### 5.16 regex and the sub() method
+
+Use the `sub()` method to replace the matched regex with the given string. The `sub()` method replaces all matches, not just the first occurence. The first string is what replaces the match, and the second string is the item to search through.
+
+```py
+import re
+
+test_regex = re.compile(r'abc')
+test_replace = test_regex.sub('ABC', 'abc')
+print(test_replace)
+
+# Output: ABC
+```
+
+If groups exist within the regex, use `\1`, `\2`, and so on, to replace the regex with the text from the given group. The r-string is required before the group number.
+
+```py
+import re
+
+test_regex = re.compile(r'abc(\w*)')
+test_replace = test_regex.sub(r'\1', 'abcdef')
+print(test_replace)
+
+# Output: def
+```
+
+### 5.17 re.VERBOSE and multi-line formatting
+
+Complex regexes can be easier to read when broken into multiple lines. With a combination of multiline strings, newlines, spaces, and re.VERBOSE, the regex can be made much more readable. Consider this sample code from [ATBS CH7:](https://automatetheboringstuff.com/2e/chapter7/)
+
+```py
+phoneRegex = re.compile(r'''(
+    (\d{3}|\(\d{3}\))?            # area code
+    (\s|-|\.)?                    # separator
+    \d{3}                         # first 3 digits
+    (\s|-|\.)                     # separator
+    \d{4}                         # last 4 digits
+    (\s*(ext|x|ext.)\s*\d{2,5})?  # extension
+    )''', re.VERBOSE)
+```
+
 Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs](https://docs.python.org/3/library/re.html)
 
-# 5. Third-party modules
+# 6. Third-party modules
 
-### 5.1. import pyperclip
+### 6.1. import pyperclip
 
 The pyperclip module comes with the `copy()` and `paste()` functions, which act directly on the computer's keyboard. 
 
 
-# 6. Classes
+# 7. Classes
 
 In Python, a custom class can be created to organize and store objects using the `class` keyword. The print statement returns the name of the class and the memory address where the object is stored.
 
@@ -811,7 +955,7 @@ print(test.y)
 # Output: 5
 # Output: 6
 ```
-### 6.1. __init__() and self
+### 7.1. __init__() and self
 
 The `self` keyword is a parameter that refers to the current instance of the class. It is passed to the `__init__()` function, which is used to create new instances of that class. In this next example, we'll create a new instance called `number` and assign it a value of `5`.
 
@@ -842,7 +986,7 @@ print(test.dessert)
 # Output: Ice cream
 ```
 
-### 6.2. Class attributes vs. instance attributes
+### 7.2. Class attributes vs. instance attributes
 
 Class attributes refer to variables defined within the class, and are shared by all instances of that class. To update the "menu" class, we can add an attribute that describes what type of menu it is. The instance attributes are already definied within the __init__() function as `self.entree = entree` and `self.dessert = dessert`
 
@@ -864,7 +1008,7 @@ print(test.attr)
 # Output: Dinner menu
 ```
 
-### 6.3. Editing or deleting class attributes
+### 7.3. Editing or deleting class attributes
 
 Class attributes can be edited just like the key/value pairs of an object. The `del` keyword can be used to delete an attribute or an entire object.
 
@@ -886,7 +1030,7 @@ print(test.entree)
 # Output: AttributeError: 'menu' object has no attribute 'entree'
 ```
 
-### 6.4. Instance methods
+### 7.4. Instance methods
 
 Classes can also contain methods, which are functions that can be called when invoking the class name. The following instance method is called `display_menu()` and it prints all the contents of the menu class. 
 
@@ -906,7 +1050,7 @@ test.display_menu()
 # Output: Salmon
 # Output: Ice cream
 ```
-### 6.5. Class methods
+### 7.5. Class methods
 
 In Python 3.x, class methods are denoted with `@classmethod` decorator and take the `cls` parameter. Unlike instance methods, class methods cannot access the attributes of an object. However, a class method can change properties of the class that are accessible to the entire class. The following class method when called allows you to pass an argument that changes the class attribute.
 
@@ -937,7 +1081,7 @@ print(menu.attr)
 
 # Output: Lunch menu
 ```
-### 6.6. Static methods
+### 7.6. Static methods
 
 In Python 3.x, static methods are denoted with the `@staticmethod` decorator and do not take the `cls` or `self` parameters. Static methods are standard functions that can be accessed by calling the object instance followed by the function name, such as `obj.static_method()`. They can also be called as standalone functions without an object instance, such as `static_method()`. A static method cannot modify the class state or instance state. 
 
