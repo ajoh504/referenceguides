@@ -86,9 +86,9 @@ The following section is from [ATBS CH7:](https://automatetheboringstuff.com/2e/
 
 > You can also use the pipe to match one of several patterns as part of your regex. For example, say you wanted to match any of the strings 'Batman', > 'Batmobile', 'Batcopter', and 'Batbat'. Since all these strings start with Bat, it would be nice if you could specify that prefix only once. This can be > done with parentheses. Enter the following into the interactive shell:
 > 
-> >>> batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
-> >>> mo = batRegex.search('Batmobile lost a wheel')
-> >>> mo.group()
+> `batRegex = re.compile(r'Bat(man|mobile|copter|bat)')`
+> `mo = batRegex.search('Batmobile lost a wheel')`
+> `mo.group()`
 > 'Batmobile'
 > >>> mo.group(1)
 > 'mobile'
