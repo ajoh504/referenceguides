@@ -175,14 +175,14 @@ The following comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chap
 
 > If there are groups in the regular expression, then findall() will return a list of tuples. Each tuple represents a found match, and its items are the matched strings for each group in the regex. To see findall() in action, enter the following into the interactive shell (notice that the regular expression being compiled now has groups in parentheses):
 > 
-> phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups
-> phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')
+> `phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups`
+> `phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')`
 > [('415', '555', '9999'), ('212', '555', '0000')]
 > 
 > To summarize what the findall() method returns, remember the following:
 > 
->     When called on a regex with no groups, such as \d\d\d-\d\d\d-\d\d\d\d, the method findall() returns a list of string matches, such as ['415-555-9999', '212-555-0000'].
->     When called on a regex that has groups, such as (\d\d\d)-(\d\d\d)-(\d\d\d\d), the method findall() returns a list of tuples of strings (one string for each group), such as [('415', '555', '9999'), ('212', '555', '0000')].
+> When called on a regex with no groups, such as \d\d\d-\d\d\d-\d\d\d\d, the method findall() returns a list of string matches, such as ['415-555-9999', '212-555-0000'].
+> When called on a regex that has groups, such as (\d\d\d)-(\d\d\d)-(\d\d\d\d), the method findall() returns a list of tuples of strings (one string for each group), such as [('415', '555', '9999'), ('212', '555', '0000')].
 
 ### 10. Regex character classes
 
