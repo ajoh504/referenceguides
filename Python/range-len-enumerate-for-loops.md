@@ -46,7 +46,7 @@ for i in range(10, 60, 10):
 
 range() sources: [ATBS](https://automatetheboringstuff.com/2e/chapter2/)
 
-### 2.2. range() and len() functions with for loops
+### range() and len() functions with for loops
 
 Call `len()` inside of `range()` when accessing multiple items in a single list, or when accessing both the index and the item at that index.
 
@@ -63,7 +63,7 @@ Run the above code without the `len()` function and you'll receive the error: `T
 
 Sources: [SO len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [SO TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [SO TypeError](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
 
-### 2.3. enumerate() function with for loops
+### enumerate() function with for loops
 
 The `enumerate()` function can also be used in a `for` loop instead of `range(len(list))`. The for loop can receive two variables, one for list indices and one for list items.
 ```py
