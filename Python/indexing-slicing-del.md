@@ -1,4 +1,4 @@
-### indexing and slicing
+### 1. indexing and slicing
 
 Use indexing notation to slice items from a list or string. Syntax: `list[i:j]` where i is the starting index and j is the stopping index. 
 
@@ -27,7 +27,7 @@ Use negative numbers to begin at the ending index: `test[-1]`
 
 Leave the starting or ending index empty to designate as either the first or last index: `test[:5]` or `test[5:]` 
 
-### Change or delete list items with indices
+### 2. Change or delete list items with indices
 
 Use a list index to change the item in a list. A negative index number begins at the end of the list. 
 
