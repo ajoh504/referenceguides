@@ -1,6 +1,6 @@
 # import re / regex
 
-The `re` module allows you to find patterns of text with regular expressionss, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses. 
+The `re` module allows you to find patterns of text with regular expressions, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses. 
 
 To search for a US phone number, use the pattern `\(\d\d\d\) \d\d\d-\d\d\d\d` or `(\d{3}) \d{3}-\d{4}` where `{3}` denotes how many `\d`'s to search for. Pass the regex pattern as a string value to `re.compile()` with the `r` string prefix. Note that the space after the area code is a part of the pattern.
 
