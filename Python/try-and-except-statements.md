@@ -1,4 +1,4 @@
-### 1.1. try and except statements
+### try and except statements
 
 For error handling, use the `try` and `except` statements. 
 
