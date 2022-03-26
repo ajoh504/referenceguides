@@ -1,8 +1,8 @@
-# Windows Batch Files
+# Intro to Windows Batch Files
 
 Windows batch files are typically stored in a plain text file and saved with the .cmd or .bat extension. In newer versions of Windows, batch scripts run in the cmd.exe program which is stored by default at C:\Windows\System32\cmd.exe. The `ECHO` command is used to display messages on-screen. The `@ECHO OFF` command can be used at the beginning of a batch file to disable echoing for the entire script. To create comments in a batch file, use `::` or `REM`.
 
-### Variable initialization
+### 1.1 Variable initialization
 
 To declare a variable in a batch file, use the `set` command, name the variable, then initialize it with the `=` operator and a string value. To print the variable on screen, use the `ECHO` command and surround the variable with `%`.
 
