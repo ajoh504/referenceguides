@@ -1,4 +1,4 @@
-# Built-In Methods
+# 6. Built-In Methods
 
 ### 6.1 calling keys(), values(), and items() on dictionaries
 
