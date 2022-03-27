@@ -12,4 +12,6 @@ Newline: `\n`
 
 Backslash: `\\`
 
-Raw string (use to ignore escape characters: `r`)
+### 3.2 Raw strings 
+
+Raw strings can be used to ignore escape characters. This is useful if you have a string with lots of backslash characters that need to be printed, such as a Windows file path. Use the `r` just before the string: `r'\\MontyPC\C:\Windows\System32\cmd.exe'`
