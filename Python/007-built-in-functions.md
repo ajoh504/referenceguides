@@ -1,6 +1,6 @@
-# Built-in functions
+# 3. Built-in functions
 
-### 1. range() function with for loops
+### 3.1 range() function with for loops
 
 The `range()` function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the item at the stopping point index is not returned. The `range()` function can also be called directly inside a `for` loop.
 
@@ -48,7 +48,7 @@ for i in range(10, 60, 10):
 
 range() sources: [ATBS](https://automatetheboringstuff.com/2e/chapter2/)
 
-### 2. range() and len() functions with for loops
+### 3.2 range() and len() functions with for loops
 
 Call `len()` inside of `range()` when accessing multiple items in a single list, or when accessing both the index and the item at that index.
 
@@ -65,7 +65,7 @@ Run the above code without the `len()` function and you'll receive the error: `T
 
 Sources: [SO len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [SO TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [SO TypeError](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
 
-### 3. enumerate() function with for loops
+### 3.3 enumerate() function with for loops
 
 The `enumerate()` function can also be used in a `for` loop instead of `range(len(list))`. The for loop can receive two variables, one for list indices and one for list items.
 ```py
@@ -79,7 +79,7 @@ for index, item in enumerate(character_list):
 ```
 
 
-### 4. print() function keyword arguments
+### 3.4 print() function keyword arguments
 
 The `print()` function always adds a newline character to the end of the printed output. Use `end=''` as an optional parameter with to eliminate the newline character. Any text entered inside the emptry string will also print.
 
@@ -98,7 +98,7 @@ print('1','2','3',sep=', ')
 ```
 
 
-### 5. list() and tuple() functions
+### 3.5 list() and tuple() functions
 
 Convert a list to a tuple, or vice versa, using either the `list()` or `tuple()` function. Both functions work with strings. 
 ```py
