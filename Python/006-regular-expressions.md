@@ -1,4 +1,4 @@
-# import re / regex
+# 6. import re / regex
 
 The `re` module allows you to find patterns of text with regular expressions, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses.
 
@@ -23,7 +23,7 @@ print('Phone is a valid US number:', num_search.group())
 In the above example, `num_search` is the variable where the match object is stored. Match objects have a specific method called `group()`. Calling the match object variable on the `group()` method returns the pattern match.
 
 
-### 1. groups within regex objects
+### 6.1 groups within regex objects
 
 `\(` or `\)` allow the parentheses to be part of the string. But parentheses can be used without `\` to create groups within the regex. 
 
@@ -75,7 +75,7 @@ print(x)
 
 ```
 
-### 2. Multiple assignment with regex groups
+### 6.2 Multiple assignment with regex groups
 
 Use the multiple assignment trick to assign the groups to variables
 
@@ -93,7 +93,7 @@ print(suffix)
 
 ```
 
-### 3. Pipe character with regex groups
+### 6.3 Pipe character with regex groups
 
 The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurence of any string in the regular expression. In the following code, we'll create a regex to search for a US area code in two formats: `'555'` or `'(555)'`. Separating the two formats with the `|` operator will return the first occurence of either. Recall that using `\d{3}` tells the interpreter to use `\d` three times. 
 
@@ -131,7 +131,7 @@ print(x)
 # Output: (555) 555-5555
 
 ```
-### 4. Optional matching with the regex question mark
+### 6.4 Optional matching with the regex question mark
 
 Previously, the code contains a space between the area code and the rest of the phone number. Not all phone numbers contain a space at that position; sometimes numbers are written as `(555)555-5555`. The space can be made optional by using parentheses with a question mark at the end and placing a single space in the middle: `( )?`. 
 
@@ -145,11 +145,11 @@ print(x)
 
 # Output: (555)555-5555
 ```
-### 5. asterisk and plus sign with regex groups
+### 6.5 asterisk and plus sign with regex groups
 
 The `*` symbol before a group matches 0 or more of any string designated in that group. The `+` sign matches 1 or more of any string designated within that group.
 
-### 6. Use braces in regex to set a range
+### 6.6 Use braces in regex to set a range
 
 We previously covered using braces to designate how many times to search for a given string. `\d{3}` searches for three digits. The braces can also be used to set a range. `\d{1,10}` will return the first occurence of any string within that range.
 
@@ -165,7 +165,7 @@ print(x)
 
 ```
 
-### 7. regex greedy vs. non-greedy
+### 6.7 regex greedy vs. non-greedy
 
 Python is greedy be default. In other words, it always matches the longest possible string within a range. To return the shortest possible string instead, use the `?`. Note that the question mark in this context is different than using it to designate an optional string. 
 
@@ -180,7 +180,7 @@ print(x)
 # Output: 5
 ```
 
-### 8. The findall() method with regex
+### 6.8 The findall() method with regex
 
 While the `search()` method returns the first occurence of the given string in the regex, the `findall()` method returns a list with every matching string as long as there are no groups. If there is no match, Python returns an empty string. 
 
@@ -194,7 +194,7 @@ print(x)
 # Output: ['555-555-5555']
 ```
 
-### 9. Regex findall() with groups
+### 6.9 Regex findall() with groups
 
 The following comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
@@ -209,7 +209,7 @@ The following comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chap
 > When called on a regex with no groups, such as \d\d\d-\d\d\d-\d\d\d\d, the method findall() returns a list of string matches, such as ['415-555-9999', '212-555-0000'].
 > When called on a regex that has groups, such as (\d\d\d)-(\d\d\d)-(\d\d\d\d), the method findall() returns a list of tuples of strings (one string for each group), such as [('415', '555', '9999'), ('212', '555', '0000')].
 
-### 10. Regex character classes
+### 6.10 Regex character classes
 
 The following table comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
@@ -237,13 +237,13 @@ print(x)
 # Output: ['7 Samurai', '7 samurai']
 ```
 
-### 11 Regex custom classes
+### 6.11 Regex custom classes
 
 Python allows you to create custom classes that function similarly to character classes. For example, there is no class for letters only. But ranges can be set for letters to create a custom class: `[a-zA-z]`. When using regular expression characters inside brackets, the backslash is not needed. For example, `[a-zA-z?!.:;]` searches for all letters plus the punctuation signs. 
 
 Using the caret symbol after the opening bracket creates a negative character class. `[^a-zA-z]` returns all values except letters. 
 
-### 12 Beginning and ending symbols with regex
+### 6.12 Beginning and ending symbols with regex
 
 Use the caret symbol at the beginning of a regex to return a match object that begins with the designated string.
 
@@ -269,7 +269,7 @@ print(x)
 
 # Output: 7
 ```
-### 13 Wildcard symbol
+### 6.13 Wildcard symbol
 
 The period is the wildcard symbol in regexes. It returns any character at that desigation. 
 
@@ -284,7 +284,7 @@ print(x)
 # Output: xyz
 ```
 
-### 14 Dot-star and re.DOTALL
+### 6.14 Dot-star and re.DOTALL
 
 The dot-star matches everything except newline characters.
 
@@ -314,7 +314,7 @@ print(x)
 # Output: abc
 ```
 
-### 15 re.IGNORECASE and re.I
+### 6.15 re.IGNORECASE and re.I
 
 Pass `re.IGNORECASE` or `re.I` as optional arguments to `re.compile()` to ignore case sensitivity. 
 
@@ -329,7 +329,7 @@ print(x)
 # Output: abc_xyz
 ```
 
-### 16 regex and the sub() method
+### 6.16 regex and the sub() method
 
 Use the `sub()` method to replace the matched regex with the given string. The `sub()` method replaces all matches, not just the first occurence. The first string is what replaces the match, and the second string is the item to search through.
 
@@ -355,7 +355,7 @@ print(test_replace)
 # Output: def
 ```
 
-### 17 re.VERBOSE and multi-line formatting
+### 6.17 re.VERBOSE and multi-line formatting
 
 Complex regexes can be easier to read when broken into multiple lines. With a combination of multiline strings, newlines, spaces, and re.VERBOSE, the regex can be made much more readable. Consider this sample code from [ATBS CH7:](https://automatetheboringstuff.com/2e/chapter7/)
 
@@ -371,3 +371,20 @@ phoneRegex = re.compile(r'''(
 ```
 
 Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs](https://docs.python.org/3/library/re.html), [Python Docs HOWTO](https://docs.python.org/3/howto/regex.html)
+
+### 6.18 Using variables inside regular expressions
+
+A variable containing a string value can be used inside of a regular expression. Simply surround the variable with the `+` operator. The regular expression will evaluate to a concatenated version of the string.
+
+```py
+import re
+x = 'Legolas'
+y = 'Gimli'
+z = 'Legolas eventually became friends with Gimli'
+regex = re.compile(r'['+x+'].*['+y+']')
+mo = regex.search(z)
+print(mo.group())
+
+# Output: Legolas eventually became friends with Gimli
+
+```
