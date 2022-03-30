@@ -1,6 +1,6 @@
-# 6. Built-In Methods
+# 2. Built-In Methods
 
-### 6.1 calling keys(), values(), and items() on dictionaries
+### 2.1 calling keys(), values(), and items() on dictionaries
 
 The `keys()`, `values`, and `items()` methods can be used to loop through the contents of a dictionary. 
 
@@ -48,7 +48,7 @@ print(Gimli.get('Home', 'No home found'))
 
 # Output: No home found
 ```
-### 6.2 setdefault() with dictionaries
+### 2.2 setdefault() with dictionaries
 
 The `setdefault()` method adds a key and sets its default value. If the key is already stored in the dictionary, it returns the value.
 ```py
@@ -71,7 +71,7 @@ print(Shire)
 # Output: {'Location': 'Middle Earth', 'Inhabitants': 'Hobbits', 'Farmland': True}
 ```
 
-### 6.3 upper() and lower() methods with strings
+### 2.3 upper() and lower() methods with strings
 
 Use the `upper()` or `lower()` methods on a string value. This returns a new string in all uppercase or all lowercase.
 
@@ -96,7 +96,7 @@ print(x.isupper())
 # Output: True
 ```
 
-### 6.4 startswith() and endswith() with strings
+### 2.4 startswith() and endswith() with strings
 
 Use `startswith()` or `endswith()` to return a Boolean value, i.e. `True` or `False` if the string begins with the designated string. 
 
@@ -106,7 +106,7 @@ print(x.startswith('a'))
 
 # Output: False
 ```
-### 6.5 join() and split() with a list of strings
+### 2.5 join() and split() with a list of strings
 
 Pass a list of strings to the `join()` method to return a new string value, with all items in the list concatenated. Preface `join()` with a required string value. Both `join()` and `split()` can act upon the escape characters.  
 ```py
@@ -126,7 +126,7 @@ print(x)
 # Output: ['abc', 'def']
 
 ```
-### 6.6 rjust(), ljust(), and center() to justify text
+### 2.6 rjust(), ljust(), and center() to justify text
 
 Use `rjust()`, `ljust()`, or `center()` to justify text. A numeric argument is required to specify the number of spaces to justify. The character count of the string is included in this number.
 ```py
@@ -136,7 +136,7 @@ print(x)
 
 # Output:   Flesh wound
 ```
-### 6.7 strip(), rstrip(), and lstrip() to remove whitespace characters
+### 2.7 strip(), rstrip(), and lstrip() to remove whitespace characters
 
 Use `strip()`, `rstrip()`, and `lstrip()` to remove whitespace characters (space, tab, and newline). `rstrip()` and `lstrip()` remove spaces from those sides respectively, and `strip()` removes spaces from both sides. 
 
@@ -170,7 +170,7 @@ From [ATBS Ch 6:](https://automatetheboringstuff.com/2e/chapter6/)
 > istitle() Returns True if the string consists only of words that begin with an uppercase letter followed by only lowercase letters
 
 
-### 6.8 index() method on iterable data types
+### 2.8 index() method on iterable data types
 
 Use the `index()` method on lists, tuples, or strings to return the index value of the given item. 
 
@@ -181,7 +181,7 @@ print(list1.index('test1'))
 # Output: 0
 ```
 
-### 6.9 append(), insert(), remove(), sort(), and reverse() with lists
+### 2.9 append(), insert(), remove(), sort(), and reverse() with lists
 
 Use `append()` on a list to append an item to the end of the list. Both methods modify the list in place, so the return value is `None`.
 
