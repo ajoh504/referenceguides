@@ -1,8 +1,8 @@
-# Standard library
+# 4. Standard library
 
 Python comes pre-built with a standard library, a collection of modules that can be imported into your code as needed. Import a new module using the `import` statement.
 
-### 1. import random
+### 4.1 import random
 
 Use `random.randint()` on a range of numbers to return a random number. 
 ```py
@@ -33,7 +33,7 @@ print(random.shuffle(list1))
 
 Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](https://automatetheboringstuff.com/2e/chapter4/)
 
-### 2. import copy
+### 4.2 import copy
 
 Use `copy.copy()` to copy the contents of one variable to another. Use `copy.deepcopy()` if the contents contain lists within lists. 
 
