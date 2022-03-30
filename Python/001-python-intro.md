@@ -1,4 +1,4 @@
-# Python intro
+# 1. Python intro
 
 This reference guide contains brief explanations of certain Python concepts and how to implement them. It is not a tutorial, but instead it shows samples of code along with notation for what the code does.
 
