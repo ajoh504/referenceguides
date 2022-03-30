@@ -1,16 +1,16 @@
 # import re / regex
 
-The `re` module allows you to find patterns of text with regular expressions, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses. 
+The `re` module allows you to find patterns of text with regular expressions, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses.
+
+If you don't use a backslash on the parentheses, they will perform a specific function, which we'll cover later.
 
 To search for a US phone number, use the pattern `\(\d\d\d\) \d\d\d-\d\d\d\d` or `(\d{3}) \d{3}-\d{4}` where `{3}` denotes how many `\d`'s to search for. Pass the regex pattern as a string value to `re.compile()` with the `r` string prefix. Note that the space after the area code is a part of the pattern.
-
 ```py
 import re
 us_phone_regex = re.compile(r'(\d\d\d) \d\d\d-\d\d\d\d')
 
 ```
 Pass a string to the `search()` method to see if it matches the pattern stored in the regex object. `None` is returned if the pattern is not found. A match object is returned if the pattern is found. 
-
 ```py
 import re
 us_phone_regex = re.compile(r'\(\d\d\d\) \d\d\d-\d\d\d\d')
@@ -20,15 +20,14 @@ print('Phone is a valid US number:', num_search.group())
 
 # Output: Phone is a valid US number: (555) 555-1234
 ```
-
-In the above example, `num_search` is the variable where the match object is stored. Calling the variable on the `group()` method returns the pattern match.
+In the above example, `num_search` is the variable where the match object is stored. Match objects have a specific method called `group()`. Calling the match object variable on the `group()` method returns the pattern match.
 
 
 ### 1. groups within regex objects
 
 `\(` or `\)` allow the parentheses to be part of the string. But parentheses can be used without `\` to create groups within the regex. 
 
-Using the code sample from above, we'll separate the phone number into two groups: the area code, and the last seven digits. Since the backslashes denote the parenthese as part of the string, all we need to do is surround each group with a new set of parentheses and leave out the backslash. So the area code from before looks like this: `\(\d\d\d\)`. To separate it into a group, we'll surround it with parentheses: `(\(\d\d\d\))`. Then we'll surround the last seven digits with parentheses: `(\d\d\d-\d\d\d\d)`. The final regex will look like this: `\(\d\d\d\) (\d\d\d-\d\d\d\d)`.
+Using the code sample from above, we'll separate the phone number into two groups: the area code, and the last seven digits. Since the backslashes denote the parenthese as part of the string, all we need to do is surround each group with a new set of parentheses and leave out the backslash. So the area code from before looks like this: `\(\d\d\d\)`. To separate it into a group, we'll surround it with parentheses: `(\(\d\d\d\))`. Then we'll surround the last seven digits with parentheses: `(\d\d\d-\d\d\d\d)`. The final regex will look like this: `(\(\d\d\d\)) (\d\d\d-\d\d\d\d)`. Or, as mentioned previously, to avoid typing `d` over and over again, we can use a number inside curly braces to denote how many digits to search for: `(\(\d\{3})) (\d{3}-\d{4})`.
 
 To view the match object by group, we call the object using the `group()` method. Passing no argument or `0` into the `group()` method returns the entire match.
 
