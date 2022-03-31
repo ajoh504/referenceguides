@@ -1,10 +1,10 @@
 # 6. import re / regex
 
-The `re` module allows you to find patterns of text with regular expressions, or regexes. Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses.
+The `re` module allows you to find patterns of text with regular expressions, or regexes. Pass the regex pattern as a string value to `re.compile()` function with the `r` string prefix. This function returns a regular expression object. 
 
-If you don't use a backslash on the parentheses, they will perform a specific function, which we'll cover later.
+Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses. If you don't use a backslash on the parentheses, they will perform a specific function, which we'll cover later.
 
-To search for a US phone number, use the pattern `\(\d\d\d\) \d\d\d-\d\d\d\d` or `(\d{3}) \d{3}-\d{4}` where `{3}` denotes how many `\d`'s to search for. Pass the regex pattern as a string value to `re.compile()` with the `r` string prefix. Note that the space after the area code is a part of the pattern.
+To search for a US phone number, use the pattern `\(\d\d\d\) \d\d\d-\d\d\d\d` or `(\d{3}) \d{3}-\d{4}` where `{3}` denotes how many `\d`'s to search for. Note that the space after the area code is a part of the pattern.
 ```py
 import re
 us_phone_regex = re.compile(r'(\d\d\d) \d\d\d-\d\d\d\d')
@@ -107,21 +107,16 @@ print(x)
 
 # Output: (555)
 ```
-The following section is from [ATBS CH7:](https://automatetheboringstuff.com/2e/chapter7/)
+The following section is from [Automate the Boring Stuff with Python CH7:](https://automatetheboringstuff.com/2e/chapter7/)
 
 > You can also use the pipe to match one of several patterns as part of your regex. For example, say you wanted to match any of the strings 'Batman', > 'Batmobile', 'Batcopter', and 'Batbat'. Since all these strings start with Bat, it would be nice if you could specify that prefix only once. This can be > done with parentheses. Enter the following into the interactive shell:
 > ```py
 > batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
-> 
 > mo = batRegex.search('Batmobile lost a wheel')
-> 
 > mo.group()
-> 
-> Batmobile
-> 
+> # Output: Batmobile
 > mo.group(1)
-> 
-> mobile
+> # Output mobile
 > ```
 
 In the above text, 'Bat' is used almost as a prefix to the group `(man|mobile|copter|bat)`. The same method can be used as a suffix. Next we'll create a regex that searches for an entire US phone number, but we'll group the area codes first, and use the rest of the phone number as a suffix. The format will be like this: `'((555)|555) 555-5555'`. Two area code formats are grouped together: `(555)` and `555` because they're contained within parentheses and separated by the pipe operator. The second part of the phone number, ` 555-5555`, is used almost as a suffix. The interpreter will search for that exact string. For readability, I'll write out the regex in long form instead of using `\d{3}`
@@ -202,14 +197,14 @@ print(x)
 
 ### 6.9 Regex findall() with groups
 
-The following comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
+The following comes from [Automate the Boring Stuff with Python CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
 > If there are groups in the regular expression, then findall() will return a list of tuples. Each tuple represents a found match, and its items are the matched strings for each group in the regex. To see findall() in action, enter the following into the interactive shell (notice that the regular expression being compiled now has groups in parentheses):
-> 
+> ```py
 > `phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups`
 > `phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')`
-> [('415', '555', '9999'), ('212', '555', '0000')]
-> 
+> # Output: [('415', '555', '9999'), ('212', '555', '0000')]
+> ```
 > To summarize what the findall() method returns, remember the following:
 > 
 > When called on a regex with no groups, such as \d\d\d-\d\d\d-\d\d\d\d, the method findall() returns a list of string matches, such as ['415-555-9999', '212-555-0000'].
@@ -217,7 +212,7 @@ The following comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chap
 
 ### 6.10 Regex character classes
 
-The following table comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
+The following table comes from [Automate the Boring Stuff with Python CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
 > In the earlier phone number regex example, you learned that \d could stand for any numeric digit. That is, \d is shorthand for the regular expression (0|1|2|3|4|5|6|7|8|9).
 > 
@@ -376,8 +371,6 @@ phoneRegex = re.compile(r'''(
     )''', re.VERBOSE)
 ```
 
-Sources: [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs](https://docs.python.org/3/library/re.html), [Python Docs HOWTO](https://docs.python.org/3/howto/regex.html)
-
 ### 6.18 Using variables inside regular expressions
 
 A variable containing a string value can be used inside of a regular expression. Simply surround the variable with the `+` operator. The regular expression will evaluate to a concatenated version of the string.
@@ -394,3 +387,5 @@ print(mo.group())
 # Output: Legolas eventually became friends with Gimli
 
 ```
+
+Sources: [Automate the Boring Stuff with Python CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs](https://docs.python.org/3/library/re.html), [Python Docs HOWTO](https://docs.python.org/3/howto/regex.html)
