@@ -110,13 +110,19 @@ print(x)
 The following section is from [ATBS CH7:](https://automatetheboringstuff.com/2e/chapter7/)
 
 > You can also use the pipe to match one of several patterns as part of your regex. For example, say you wanted to match any of the strings 'Batman', > 'Batmobile', 'Batcopter', and 'Batbat'. Since all these strings start with Bat, it would be nice if you could specify that prefix only once. This can be > done with parentheses. Enter the following into the interactive shell:
+> ```py
+> batRegex = re.compile(r'Bat(man|mobile|copter|bat)')
 > 
-> `batRegex = re.compile(r'Bat(man|mobile|copter|bat)')`
-> `mo = batRegex.search('Batmobile lost a wheel')`
-> `mo.group()`
-> 'Batmobile'
-> `mo.group(1)`
-> 'mobile'
+> mo = batRegex.search('Batmobile lost a wheel')
+> 
+> mo.group()
+> 
+> Batmobile
+> 
+> mo.group(1)
+> 
+> mobile
+> ```
 
 In the above text, 'Bat' is used almost as a prefix to the group `(man|mobile|copter|bat)`. The same method can be used as a suffix. Next we'll create a regex that searches for an entire US phone number, but we'll group the area codes first, and use the rest of the phone number as a suffix. The format will be like this: `'((555)|555) 555-5555'`. Two area code formats are grouped together: `(555)` and `555` because they're contained within parentheses and separated by the pipe operator. The second part of the phone number, ` 555-5555`, is used almost as a suffix. The interpreter will search for that exact string. For readability, I'll write out the regex in long form instead of using `\d{3}`
 
