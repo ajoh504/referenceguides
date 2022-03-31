@@ -1,4 +1,4 @@
-# 9. Classes
+# 7. Classes
 
 In Python, a custom class can be created to organize and store objects using the `class` keyword. The print statement returns the name of the class and the memory address where the object is stored.
 
@@ -26,7 +26,7 @@ print(test.y)
 # Output: 5
 # Output: 6
 ```
-### 9.1 __init__() and self
+### 7.1 __init__() and self
 
 The `self` keyword is a parameter that refers to the current instance of the class. It is passed to the `__init__()` function, which is used to create new instances of that class. In this next example, we'll create a new instance called `number` and assign it a value of `5`.
 
@@ -57,7 +57,7 @@ print(test.dessert)
 # Output: Ice cream
 ```
 
-### 9.2 Class attributes vs. instance attributes
+### 7.2 Class attributes vs. instance attributes
 
 Class attributes refer to variables defined within the class, and are shared by all instances of that class. To update the "menu" class, we can add an attribute that describes what type of menu it is. The instance attributes are already definied within the __init__() function as `self.entree = entree` and `self.dessert = dessert`
 
@@ -79,7 +79,7 @@ print(test.attr)
 # Output: Dinner menu
 ```
 
-### 9.3 Editing or deleting class attributes
+### 7.3 Editing or deleting class attributes
 
 Class attributes can be edited just like the key/value pairs of an object. The `del` keyword can be used to delete an attribute or an entire object.
 
@@ -101,7 +101,7 @@ print(test.entree)
 # Output: AttributeError: 'menu' object has no attribute 'entree'
 ```
 
-### 9.4 Instance methods
+### 7.4 Instance methods
 
 Classes can also contain methods, which are functions that can be called when invoking the class name. The following instance method is called `display_menu()` and it prints all the contents of the menu class. 
 
@@ -121,7 +121,7 @@ test.display_menu()
 # Output: Salmon
 # Output: Ice cream
 ```
-### 9.5 Class methods
+### 7.5 Class methods
 
 In Python 3.x, class methods are denoted with `@classmethod` decorator and take the `cls` parameter. Unlike instance methods, class methods cannot access the attributes of an object. However, a class method can change properties of the class that are accessible to the entire class. The following class method when called allows you to pass an argument that changes the class attribute.
 
@@ -152,7 +152,7 @@ print(menu.attr)
 
 # Output: Lunch menu
 ```
-### 9.6 Static methods
+### 7.6 Static methods
 
 In Python 3.x, static methods are denoted with the `@staticmethod` decorator and do not take the `cls` or `self` parameters. Static methods are standard functions that can be accessed by calling the object instance followed by the function name, such as `obj.static_method()`. They can also be called as standalone functions without an object instance, such as `static_method()`. A static method cannot modify the class state or instance state. 
 
