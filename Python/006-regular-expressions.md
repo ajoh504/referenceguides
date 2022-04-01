@@ -165,6 +165,7 @@ print(x)
 # Output: 555
 
 ```
+One of the two numbers can be left out. `{,9}` means 0-9, and `{9,}` means start at nine and match infinitely. 
 
 ### 6.7 regex greedy vs. non-greedy
 
@@ -183,7 +184,7 @@ print(x)
 
 ### 6.8 The findall() method with regex
 
-While the `search()` method returns the first occurence of the given string in the regex, the `findall()` method returns a list with every matching string as long as there are no groups. If there is no match, Python returns an empty string. 
+While the `search()` method returns the first occurence of the given string in the regex, the `findall()` method returns a list with every matching string (as long as there are no groups). If there is no match, Python returns an empty string. 
 
 ```py
 import re
@@ -197,9 +198,9 @@ print(x)
 
 ### 6.9 Regex findall() with groups
 
-The following comes from [Automate the Boring Stuff with Python CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
+If the regex contains either zero or one group, findall() will return a list of string matches. If the regex contains two or more groups, then findall() will return a list of tuples. Inside each tuple are the string matches for each group in the regex. 
 
-> If there are groups in the regular expression, then findall() will return a list of tuples. Each tuple represents a found match, and its items are the matched strings for each group in the regex. To see findall() in action, enter the following into the interactive shell (notice that the regular expression being compiled now has groups in parentheses):
+The following comes from [Automate the Boring Stuff with Python CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 > ```py
 > `phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups`
 > `phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')`
@@ -242,7 +243,7 @@ print(x)
 
 Python allows you to create custom classes that function similarly to character classes. For example, there is no class for letters only. But ranges can be set for letters to create a custom class: `[a-zA-z]`. When using regular expression characters inside brackets, the backslash is not needed. For example, `[a-zA-z?!.:;]` searches for all letters plus the punctuation signs. 
 
-Using the caret symbol after the opening bracket creates a negative character class. `[^a-zA-z]` returns all values except letters. 
+Using the caret symbol after the opening bracket creates a negative character class. `[^a-zA-z]` returns all values except letters. Note that by default, your custom character class will only match a single occurence of the given character set, just like a standard character class.  
 
 ### 6.12 Beginning and ending symbols with regex
 
@@ -270,6 +271,8 @@ print(x)
 
 # Output: 7
 ```
+Using both `^` and `$` tells the compiler to match the entire pattern. Example: `re.compile(r'^\d+$')` will only match a string with a number of any length at the beginning and end. The number cannot contain anything else but a number because it's been surrounded by the caret and dollar sign. 
+
 ### 6.13 Wildcard symbol
 
 The period is the wildcard symbol in regexes. It returns any character at that desigation. 
@@ -370,6 +373,7 @@ phoneRegex = re.compile(r'''(
     (\s*(ext|x|ext.)\s*\d{2,5})?  # extension
     )''', re.VERBOSE)
 ```
+To use multiple optional arguments at the end of a regex, separate them with the pipe character: `re.compile('...'. re.VERBOSE | re.DOTALL | re.I)`
 
 ### 6.18 Using variables inside regular expressions
 
