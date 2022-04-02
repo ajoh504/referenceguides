@@ -18,9 +18,9 @@ Use `import pyinputplus as pyip` to avoid typing the entire module name when cal
 
 3. `inputInt()`/`inputFloat()` requires an int/float respectively, returns int or float. Has optional `min=`, `max=`, `greaterThan=`, and `lessThan=` keyword arguments. 
  
-  Example: `x = pyip.inputNum('Enter a number 10 or higher: ', greaterThan=9)` 
+Example: `x = pyip.inputNum('Enter a number 10 or higher: ', greaterThan=9)` 
 
-  Or use multiple arguments: `x = pyip.inputNum('Type a number between 0 and 10: ', min=0, max=10)`
+Or use multiple arguments: `x = pyip.inputNum('Type a number between 0 and 10: ', min=0, max=10)`
 
 4. `inputChoice()` requires user to enter one of the provided choices
 
