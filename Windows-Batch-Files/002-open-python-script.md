@@ -23,4 +23,6 @@ To access the command line arguments in your python code, import the `sys` modul
 
 ### 2.3 Install third party modules with pip
 
-The pip install location must be added to PATH. To install a third party module, use the command `pip install --user <ModuleName>`cmd
+The pip install location must be added to PATH. 
+
+To install a third party module, use the command `pip install --user <ModuleName>`
