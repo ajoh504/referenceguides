@@ -20,3 +20,7 @@ Now, simply type Win+R and enter the name of your batch script. You don't need t
 If you need to pass command line arguments into the python script, you can enter them in Win+R immediately after your batch file name, separated by spaces. 
 
 To access the command line arguments in your python code, import the `sys` module. Command line arguments are stored in the `sys.argv` list. 
+
+### 2.3 Install third party modules with pip
+
+The pip install location must be added to PATH. To install a third party module, use the command `pip install --user <ModuleName>`cmd
