@@ -39,7 +39,7 @@ Use `copy.copy()` to copy the contents of one variable to another. Use `copy.dee
 
 ### 4.3 import pathlib
 
-pathlib allows the user to act on file paths. The `/` operator when used in the `Path()` function acts as a tool to concatenate multiple parts of a filepath, such as directories and file names. The benefit of the path function is that it uses the appropriate file path conventions for whatever operating system the user is on. So `\` in Windows file paths would be converted to `/` on Mac OS and Linux, and vice versa. 
+pathlib allows the user to act on file paths. The `/` operator when used to the right of the `Path()` function acts as a tool to concatenate multiple parts of a file path, such as directories and file names. The benefit of the `path()` function is that it uses the appropriate file path conventions for whatever operating system the user is on. So `\` in Windows file paths would be converted to `/` on Mac OS and Linux, and vice versa. 
 
 ```py
 from pathlib import Path
@@ -49,3 +49,28 @@ print(new_filepath)
 # Output: C:\new_folder\new_file.txt
 ```
 
+The `Path.cwd()` function stands for "current working directory. Run it to retrieve the current directory as a string. 
+
+Use `Path.home()` to return the user's home directory as a string. 
+
+### 4.4 import os
+
+The `os.chdir()` function allows you to change directories by inputting a string value as an argument. 
+
+Use `os.makedirs()` to create a new directory by specifying its absolute file path as a string argument. New subdirectories can be added at the time of making the parent directory. 
+
+Use `os.path.abspath('.')` to return the absolute path of the current working directory. 
+
+Use `os.path.abspath('..')` to return the absolute path of the parent directory. 
+
+Use `os.path.abspath('.\\NewFile')` to return the absolute path of the argument, where 'NewFile' is relative to the current working directory
+
+Use `os.path.relpath(<file path>, <starting path>)` to return the relative path of the first argument, `<file path>`, when starting at the second argument, `<starting path>`.
+```py
+import os
+x = os.path.relpath('C:\\Windows\\System32', '\\some\\file\\path')
+print(x)
+
+# Output: '..\\..\\..\\Windows\\System32'
+```
+The three `..` tell the user to go back three directories, i.e. 'some', 'file', and 'path'. Then, the interpreter provides the relative path from `C:\` to the first argument, which is `\\Windows\\System`
