@@ -39,7 +39,7 @@ Use `copy.copy()` to copy the contents of one variable to another. Use `copy.dee
 
 ### 4.3 import pathlib
 
-pathlib allows the user to act on file paths. The `/` operator when used to the right of the `Path()` function acts as a tool to concatenate multiple parts of a file path, such as directories and file names. The benefit of the `path()` function is that it uses the appropriate file path conventions for whatever operating system the user is on. So `\` in Windows file paths would be converted to `/` on Mac OS and Linux, and vice versa. 
+The pathlib module allows the user to act on file paths. The `/` operator when used to the right of the `Path()` function acts as a tool to concatenate multiple parts of a file path, such as directories and file names. The benefit of the `path()` function is that it uses the appropriate file path conventions for whatever operating system the user is on. So `\` in Windows file paths would be converted to `/` on Mac OS and Linux, and vice versa. 
 
 ```py
 from pathlib import Path
@@ -52,6 +52,20 @@ print(new_filepath)
 The `Path.cwd()` function stands for "current working directory. Run it to retrieve the current directory as a string. 
 
 Use `Path.home()` to return the user's home directory as a string. 
+
+The pathlib module contains class attributes that return various parts of the file path. Use the syntax `x = Path('C:/Windows/commands.txt')` and call the attributes on the variable x, such as `x.anchor`
+
+`x.anchor` returns `'C:\\'`
+
+`x.parent` returns `WindowsPath('C:/Windows/')`
+
+`x.name` returns `'commands.txt'`
+
+`x.stem` returns `'commands'`
+
+`x.suffix` returns `'.txt'`
+
+`x.drives` returns `'C:'`
 
 ### 4.4 import os
 
