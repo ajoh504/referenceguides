@@ -80,6 +80,13 @@ print(y)
 # Output: A list of all files and subdirectories in your current working directory 
 
 ```
+
+`x.exists()` returns a Boolean value determining whether or not the file path is valid. Works with external and optical drives. 
+
+`x.is_dir()` or `x.is_file()` returns a Boolean value determining whether or not the path is a directory or file, respectively. 
+
+`x.write_text(<string argument>)` writes text to a plain text file as long as x contains a valid file. The text must be supplemented as a string argument. `x.read_text()` will return the contents of the plain text file contained in the variable x. 
+
 Follow the `'*'` argument with a file extension to return all items with that file type: `x.glob('*.pdf')`
 
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
