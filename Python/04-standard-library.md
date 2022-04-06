@@ -31,7 +31,7 @@ print(random.shuffle(list1))
 # Output: list1 but rearranged randomly
 ```
 
-Sources [ATBS CH2](https://automatetheboringstuff.com/2e/chapter2/). [ATBS CH4](https://automatetheboringstuff.com/2e/chapter4/)
+Sources [Automate the Boring Stuff CH2](https://automatetheboringstuff.com/2e/chapter2/). [Automate the Boring Stuff CH4](https://automatetheboringstuff.com/2e/chapter4/)
 
 ### 4.2 import copy
 
@@ -67,6 +67,23 @@ The pathlib module contains class attributes that return various parts of the fi
 
 `x.drives` returns `'C:'`
 
+Use the `glob()` method to search for specific files and subdirectories within a specified directory. The `glob()` method receives arguments that are similar to regular expressions. For example, the `'*'` argument returns every file and subdirectory within the directory. First, place the desired path into a variable, such as the current working directory: `x = Path.cwd()`. Then, call the `glob()` method on the variable, and pass it to the `list()` function. 
+
+```py
+import os
+from pathlib import Path
+
+x = Path.cwd()
+y = list(x.glob('*'))
+print(y)
+
+# Output: A list of all files and subdirectories in your current working directory 
+
+```
+Follow the `'*'` argument with a file extension to return all items with that file type: `x.glob('*.pdf')`
+
+Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
+
 ### 4.4 import os
 
 The `os.chdir()` function allows you to change directories by inputting a string value as an argument. 
@@ -88,3 +105,5 @@ print(x)
 # Output: '..\\..\\..\\Windows\\System32'
 ```
 The three `..` tell the user to go back three directories, i.e. 'some', 'file', and 'path'. Then, the interpreter provides the relative path from `C:\` to the first argument, which is `\\Windows\\System`
+
+Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
