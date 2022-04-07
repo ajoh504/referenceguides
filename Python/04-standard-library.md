@@ -89,6 +89,18 @@ print(y)
 
 Follow the `'*'` argument with a file extension to return all items with that file type: `x.glob('*.pdf')`
 
+Pathlib's `.read()` method allows you to read the contents of a file. First, pass a valid file path into the `open()` method. The `open()` method opens a file in read mode by default, so the file cannot be written to using this method. The optional arguemnt `'r'` can be passed to the `open()` method to specify opening the file in read mode, but since read mode is the default, `'r'` is optional.
+
+```py
+from pathlib import Path
+x = open('C:\\SomeDir\\SomeFile.txt', 'r')
+y = x.read()
+print(y)
+
+# Output: A string of all the contents of SomeFile.txt
+```
+
+
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
 
 ### 4.4 import os
