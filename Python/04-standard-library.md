@@ -99,7 +99,24 @@ print(y)
 
 # Output: A string of all the contents of SomeFile.txt
 ```
+Alternatively, the `readlines()` method can be used to obtain a list of all string contents, separated by lines. 
 
+To write contents to an open file, you must open the file in either write mode or append mode. Write mode overwrites whatever is previously contained in the file. Append mode adds to the file. Use 'w' or 'a' as the optional argument to specify either of these modes. If the specified file doesn't exist, write or append mode will create it. Be sure to close the file before commiting any other actions, such as reading the file. 
+
+```py
+from pathlib import Path
+import os
+
+os.chdir('C:\\SomeDir')
+x = open('SomeFile.txt', 'a')
+x.write('This text will be appended to the file.')
+x.close()
+x = open('SomeFile.txt', 'r')
+y = x.read()
+print(y)
+
+# Output: A string of all the contents of SomeFile.txt, plus 'This text will be appended to the file.'
+```
 
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
 
@@ -125,4 +142,20 @@ print(x)
 ```
 The three `..` tell the user to go back three directories, i.e. 'some', 'file', and 'path'. Then, the interpreter provides the relative path from `C:\` to the first argument, which is `\\Windows\\System`
 
+Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
+
+### 4.5 import shelve
+
+The shelve module will allow you to create and store variables to binary files. In the following code, if 'test_shelve' does not exist, the program will create it. On a Windows PC, there will be three files created in the current working directory: .dat, .bak, and .dir. Once the file is open, you can store values similar to a dictionary by using key/value pairs. 
+
+```py
+import shelve
+import os
+
+os.chdir('Enter desired directory. The binary files will be stored here')
+x = shelve.open('test_shelve')
+data_list = ['test1', 'test2']
+x['data_list'] = data_list
+x.close()
+```
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
