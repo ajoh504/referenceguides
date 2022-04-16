@@ -1,6 +1,6 @@
 # 1. Python intro / misc
 
-Explanations of certain Python concepts along with sample code
+Explanations of certain Python concepts accompanied by code samples
 
 ### 1.1 Escape characters
 
@@ -31,19 +31,19 @@ Use the %s operator within a string to designate where to add new strings.
 ```py
 var1 = 'bow'
 var2 = 'axe'
-string1 = 'Legolas used a %s, but Gimli preferred an %s.' % (var1, var2)
+string1 = 'Gimli used an %s, but Legolas preferred a %s.' % (var2, var1)
 print(string1)
 
-# Output: Legolas used a bow, but Gimli preferred an axe.
+# Output: Gimli used an axe, but Legolas preferred a bow.
 ```
 f-strings are similar, except the expression is placed inside of the string. Place f in front of the string to edit, and place the variables between {}.
 ```py
 var1 = 'bow'
 var2 = 'axe'
-string1 = f'Legolas used a {var1}, but Gimli preferred an {var2}." 
+string1 = f'Gimli used an {var2}, but Legolas preferred a {var1}.' 
 print(string1)
 
-# Output: Legolas used a bow, but Gimli preferred an axe.
+# Output: Gimli used an axe, but Legolas preferred a bow.
 ```
 ### 1.4 try and except statements
 
@@ -85,7 +85,7 @@ finally:
 ```
 ### 1.5 tuple unpacking/multiple assignment
 
-Tuple unpacking is a shortcut for assigning each item in a list to their own variable. The variable names must equal the number of items in the list or else an error will occur.
+Tuple unpacking is a shortcut for assigning each item in a list to its own variable. The variable names must equal the number of items in the list or else an error will occur.
 ```py
 character_list = ['Aragorn', 'Legolas', 'Bilbo']
 human, elf, hobbit = character_list
@@ -95,7 +95,7 @@ print(human, elf)
 ```
 ### 1.6 indexing and slicing
 
-Use indexing notation to slice items from a list or string. Syntax: list[i:j] where i is the starting index and j is the stopping index.
+Use indexing notation to slice items from a list or string. Syntax: `list[i:j]` where i is the starting index and j is the stopping index.
 ```py
 test = [1, 2, 3, 4, 5, 6]
 test = test[0:2]
@@ -114,9 +114,9 @@ for i in range(len(var)):
 # Output: cd
 # Output: d
 ```
-Use negative numbers to begin at the ending index: test[-1]
+Use negative numbers to begin at the ending index: `test[-1]`
 
-Leave the starting or ending index empty to designate as either the first or last index: test[:5] or test[5:]
+Leave the starting or ending index empty to designate as either the first or last index: `test[:5]` or `test[5:]`
 
 ### 1.7 Change or delete list items with indices
 
@@ -138,3 +138,27 @@ print(test)
 
 # Output: [2, 3, 4, 5]
 ```
+### 1.8 Ternary conditional expressions
+
+Combine an `if else` statement into a single line using a ternary conditional. Syntax: <do this> if <this is True> else <do this>. The following sample prints `True` if `x` is an even number.
+
+```py
+x = 1
+y = 2
+print(True if x % 2 == 0 else False)
+
+# Output: False
+```
+
+Sources: [Stack Overflow](https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator), [W3 Schools](https://www.w3schools.com/python/python_conditions.asp)
+    
+### 1.8 List Comprehension
+    
+Use list comprehension to create a new list based on a prior list, while also combining a for loop into a single line. Syntax: <new list> = <expression> for <iterator> in <iterable> if <condition is True>.
+
+    ```py
+    prior_list = [1,2,3]
+    new_list = prior_list.append(x) for i in prior_list if i > 0
+    ```
+    
+Sources: [W3 Schools](https://www.w3schools.com/python/python_lists_comprehension.asp), [Python Docs](https://docs.python.org/3/tutorial/datastructures.html)
