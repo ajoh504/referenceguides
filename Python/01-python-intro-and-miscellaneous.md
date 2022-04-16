@@ -161,7 +161,7 @@ prior_list = [1,2,3]
 new_list = [i for i in prior_list if i > 0]
 print(new_list)
 
-Output: [1,2,3]
+# Output: [1,2,3]
 ```
     
 Sources: [W3 Schools](https://www.w3schools.com/python/python_lists_comprehension.asp), [Python Docs](https://docs.python.org/3/tutorial/datastructures.html)
@@ -170,4 +170,4 @@ Sources: [W3 Schools](https://www.w3schools.com/python/python_lists_comprehensio
 
 Use `is` or `is not` when comparing a value against `None` rather than using `==` or `!=`. This will convert `None` to a Boolean value, such as when comparing against the match object of a regex. This is useful if the return statement needs to be a Boolean value, and the expression evaluates to a possible `None` value. Example: if a regex finds no match, it returns `None`. So `None is not None` evaluates to `False`. If a regex does return a match object, then `None is not None` evaluates to True. 
 
-Sources: [Stack Overflow](https://stackoverflow.com/questions/14247373/python-none-comparison-should-i-use-is-or), [W3 Schools](https://www.w3schools.com/python/ref_keyword_not.asp)
+Sources: [Stack Overflow](https://stackoverflow.com/questions/14247373/python-none-comparison-should-i-use-is-or), [W3 Schools](https://www.w3schools.com/python/ref_keyword_not.asp), [Stack Overflow](https://stackoverflow.com/questions/3914667/false-or-none-vs-none-or-false)
