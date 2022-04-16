@@ -166,7 +166,21 @@ print(new_list)
     
 Sources: [W3 Schools](https://www.w3schools.com/python/python_lists_comprehension.asp), [Python Docs](https://docs.python.org/3/tutorial/datastructures.html)
 
-### 1.9 is not None
+### 1.9 Use if/else in list comprehension
+
+To use an else statement inside of list comprehension, re-order the syntax as such: `<new list> = <expression> if <condition is True> else <expression> for <iterator> in <iterable>`
+
+```py
+prior_list = [1,2,3]
+new_list = [i if i > 0 else 'Cannot append list item' for i in prior_list]
+print(new_list)
+
+[1, 2, 3, 'Cannot append list item']
+```
+
+[Stack Overflow](https://stackoverflow.com/questions/4260280/if-else-in-a-list-comprehension)
+
+### 1.10 is not None
 
 Use `is` or `is not` when comparing a value against `None` rather than using `==` or `!=`. This will convert `None` to a Boolean value, such as when comparing against the match object of a regex. This is useful if the return statement needs to be a Boolean value, and the expression evaluates to a possible `None` value. Example: if a regex finds no match, it returns `None`. So `None is not None` evaluates to `False`. If a regex does return a match object, then `None is not None` evaluates to True. 
 
