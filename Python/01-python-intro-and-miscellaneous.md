@@ -1,20 +1,25 @@
 # 1. Python intro / misc
 
-This reference guide contains brief explanations of certain Python concepts and how to implement them. It is not a tutorial, but instead it shows samples of code along with notation for what the code does.
+Explanations of certain Python concepts along with sample code
 
 ### 1.1 Escape characters
 
 Escape characters allow you to use special characters inside strings without affecting the interpreter. For quotes, single quotes can be used inside of double quotes (or vice versa) in place of using a backslash character. Example: 'Test your string "inside a string" like this'
 ```py
-Single quote: \'
+#Single quote: 
+\'
 
-Double quote: \"
+#Double quote: 
+\"
 
-Tab: \t
+#Tab: 
+\t
 
-Newline: \n
+#Newline: 
+\n
 
-Backslash: \\
+#Backslash: 
+\\
 ```
 ### 1.2 Raw strings
 
