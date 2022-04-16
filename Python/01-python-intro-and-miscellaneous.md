@@ -140,7 +140,7 @@ print(test)
 ```
 ### 1.8 Ternary conditional expressions
 
-Combine an `if else` statement into a single line using a ternary conditional. Syntax: <do this> if <this is True> else <do this>. The following sample prints `True` if `x` is an even number.
+Combine an `if else` statement into a single line using a ternary conditional. Syntax: `<do this> if <this is True> else <do this>`. The following sample prints `True` if `x` is an even number.
 
 ```py
 x = 1
@@ -154,11 +154,20 @@ Sources: [Stack Overflow](https://stackoverflow.com/questions/394809/does-python
     
 ### 1.8 List Comprehension
     
-Use list comprehension to create a new list based on a prior list, while also combining a for loop into a single line. Syntax: <new list> = <expression> for <iterator> in <iterable> if <condition is True>.
+Use list comprehension to create a new list based on a prior list, while also combining a for loop into a single line. Syntax: `<new list> = <expression> for <iterator> in <iterable> if <condition is True>.`
 
-    ```py
-    prior_list = [1,2,3]
-    new_list = prior_list.append(x) for i in prior_list if i > 0
-    ```
+```py
+prior_list = [1,2,3]
+new_list = [i for i in prior_list if i > 0]
+print(new_list)
+
+Output: [1,2,3]
+```
     
 Sources: [W3 Schools](https://www.w3schools.com/python/python_lists_comprehension.asp), [Python Docs](https://docs.python.org/3/tutorial/datastructures.html)
+
+### 1.9 is not None
+
+Use `is` or `is not` when comparing a value against `None` rather than using `==` or `!=`. This will convert `None` to a Boolean value, such as when comparing against the match object of a regex. This is useful if the return statement needs to be a Boolean value, and the expression evaluates to a possible `None` value. Example: if a regex finds no match, it returns `None`. So `None is not None` evaluates to `False`. If a regex does return a match object, then `None is not None` evaluates to True. 
+
+Sources: [Stack Overflow](https://stackoverflow.com/questions/14247373/python-none-comparison-should-i-use-is-or), [W3 Schools](https://www.w3schools.com/python/ref_keyword_not.asp)
