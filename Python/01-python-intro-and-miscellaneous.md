@@ -152,7 +152,7 @@ print(True if x % 2 == 0 else False)
 
 Sources: [Stack Overflow](https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator), [W3 Schools](https://www.w3schools.com/python/python_conditions.asp)
     
-### 1.8 List Comprehension
+### 1.9 List Comprehension
     
 Use list comprehension to create a new list based on a prior list, while also combining a for loop into a single line. Syntax: `<new list> = <expression> for <iterator> in <iterable> if <condition is True>.`
 
@@ -166,7 +166,7 @@ print(new_list)
     
 Sources: [W3 Schools](https://www.w3schools.com/python/python_lists_comprehension.asp), [Python Docs](https://docs.python.org/3/tutorial/datastructures.html)
 
-### 1.9 Use if/else in list comprehension
+### 1.10 Use if/else in list comprehension
 
 To use an else statement inside of list comprehension, re-order the syntax as such: `<new list> = <expression> if <condition is True> else <expression> for <iterator> in <iterable>`
 
@@ -180,7 +180,7 @@ print(new_list)
 
 [Stack Overflow](https://stackoverflow.com/questions/4260280/if-else-in-a-list-comprehension)
 
-### 1.10 is not None
+### 1.11 is not None
 
 Use `is` or `is not` when comparing a value against `None` rather than using `==` or `!=`. This will convert `None` to a Boolean value, such as when comparing against the match object of a regex. This is useful if the return statement needs to be a Boolean value, and the expression evaluates to a possible `None` value. Example: if a regex finds no match, it returns `None`. So `None is not None` evaluates to `False`. If a regex does return a match object, then `None is not None` evaluates to True. 
 
