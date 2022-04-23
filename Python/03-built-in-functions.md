@@ -117,7 +117,7 @@ print(character)
 ```
 
 
-### id() function returns the memory address where the object is stored
+### 3.6 id() function returns the memory address where the object is stored
 ```py
 character = 'Aragorn'
 print(id(character))
