@@ -1,4 +1,4 @@
-### 2. Open a python script in cmd.exe
+# 2. Open a python script in cmd.exe
 
 To open a python script in the Windows command line, simply save a batch script containing the file path leading to the python script. Use `py` or `py.exe` before the file path. Use `%*` after the file path to pass any arguments from the command line to the python script. 
 ```cmd
