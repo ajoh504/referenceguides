@@ -1,43 +1,6 @@
-# 4. Standard library
+# 4. os, pathlib, and shelve modules
 
-Python comes pre-built with a standard library, a collection of modules that can be imported into your code as needed. Import a new module using the `import` statement.
-
-### 4.1 import random
-
-Use `random.randint()` on a range of numbers to return a random number. 
-```py
-import random
-print(random.randint(1,100))
-
-# Output: a random integer between 1 and 100
-```
-
-Use `random.choice()` on a list to return a random item from that list. 
-
-```py
-import random
-list1 = ['Mordor', 'The Shire', 'Gondor']
-print(random.choice(list1))
-
-# Output: a random item from list1
-```
-
-Use `random.shuffle()` on a list to shuffle the contents of a list. The list is modified in place. 
-```py
-import random
-list1 = ['Mordor', 'The Shire', 'Gondor']
-print(random.shuffle(list1))
-
-# Output: list1 but rearranged randomly
-```
-
-Sources [Automate the Boring Stuff CH2](https://automatetheboringstuff.com/2e/chapter2/). [Automate the Boring Stuff CH4](https://automatetheboringstuff.com/2e/chapter4/)
-
-### 4.2 import copy
-
-Use `copy.copy()` to copy the contents of one variable to another. Use `copy.deepcopy()` if the contents contain lists within lists. 
-
-### 4.3 import pathlib
+### 4.1 import pathlib / path() function
 
 The pathlib module allows the user to act on file paths. The `/` operator when used to the right of the `Path()` function acts as a tool to concatenate multiple parts of a file path, such as directories and file names. The benefit of the `path()` function is that it uses the appropriate file path conventions for whatever operating system the user is on. So `\` in Windows file paths would be converted to `/` on Mac OS and Linux, and vice versa. 
 
@@ -48,10 +11,13 @@ print(new_filepath)
 
 # Output: C:\new_folder\new_file.txt
 ```
+### 4.2 Path.cwd() and Path.home()
 
 The `Path.cwd()` function stands for "current working directory. Run it to retrieve the current directory as a string. 
 
 Use `Path.home()` to return the user's home directory as a string. 
+
+### 4.3 pathlib class attributes
 
 The pathlib module contains class attributes that return various parts of the file path. Use the syntax `x = Path('C:/Windows/commands.txt')` and call the attributes on the variable x, such as `x.anchor`
 
@@ -67,6 +33,8 @@ The pathlib module contains class attributes that return various parts of the fi
 
 `x.drives` returns `'C:'`
 
+### 4.4 glob() method
+
 Use the `glob()` method to search for specific files and subdirectories within a specified directory. The `glob()` method receives arguments that are similar to regular expressions. For example, the `'*'` argument returns every file and subdirectory within the directory. First, place the desired path into a variable, such as the current working directory: `x = Path.cwd()`. Then, call the `glob()` method on the variable, and pass it to the `list()` function. 
 
 ```py
@@ -81,13 +49,17 @@ print(y)
 
 ```
 
+Follow the `'*'` argument with a file extension to return all items with that file type: `x.glob('*.pdf')`
+
+### 4.5 exists(), is_dir(), and is_file()
+
 `x.exists()` returns a Boolean value determining whether or not the file path is valid. Works with external and optical drives. 
 
 `x.is_dir()` or `x.is_file()` returns a Boolean value determining whether or not the path is a directory or file, respectively. 
 
-`x.write_text(<string argument>)` writes text to a plain text file as long as x contains a valid file. The text must be supplemented as a string argument. `x.read_text()` will return the contents of the plain text file contained in the variable x. 
+### 4.6 read(), write(), and open()
 
-Follow the `'*'` argument with a file extension to return all items with that file type: `x.glob('*.pdf')`
+`x.write_text(<string argument>)` writes text to a plain text file as long as x contains a valid file. The text must be supplemented as a string argument. `x.read_text()` will return the contents of the plain text file contained in the variable x. 
 
 Pathlib's `.read()` method allows you to read the contents of a file. First, pass a valid file path into the `open()` method. The `open()` method opens a file in read mode by default, so the file cannot be written to using this method. The optional arguemnt `'r'` can be passed to the `open()` method to specify opening the file in read mode, but since read mode is the default, `'r'` is optional.
 
@@ -120,7 +92,7 @@ print(y)
 
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
 
-### 4.4 import os
+### 4.7 import os, chdir(), and makedirs()
 
 The `os.chdir()` function allows you to change directories by inputting a string value as an argument. 
 
@@ -144,7 +116,7 @@ The three `..` tell the user to go back three directories, i.e. 'some', 'file', 
 
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
 
-### 4.5 import shelve
+### 4.8 import shelve
 
 The shelve module will allow you to create and store variables to binary files. In the following code, if 'test_shelve' does not exist, the program will create it. On a Windows PC, there will be three files created in the current working directory: .dat, .bak, and .dir. Once the file is open, you can store values similar to a dictionary by using key/value pairs. 
 
