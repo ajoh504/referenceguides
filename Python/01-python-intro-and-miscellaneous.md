@@ -185,3 +185,34 @@ print(new_list)
 Use `is` or `is not` when comparing a value against `None` rather than using `==` or `!=`. This will convert `None` to a Boolean value, such as when comparing against the match object of a regex. This is useful if the return statement needs to be a Boolean value, and the expression evaluates to a possible `None` value. Example: if a regex finds no match, it returns `None`. So `None is not None` evaluates to `False`. If a regex does return a match object, then `None is not None` evaluates to True. 
 
 Sources: [Stack Overflow](https://stackoverflow.com/questions/14247373/python-none-comparison-should-i-use-is-or), [W3 Schools](https://www.w3schools.com/python/ref_keyword_not.asp), [Stack Overflow](https://stackoverflow.com/questions/3914667/false-or-none-vs-none-or-false)
+
+### 1.12 import random
+
+Use `random.randint()` on a range of numbers to return a random number. 
+```py
+import random
+print(random.randint(1,100))
+
+# Output: a random integer between 1 and 100
+```
+
+Use `random.choice()` on a list to return a random item from that list. 
+
+```py
+import random
+list1 = ['Mordor', 'The Shire', 'Gondor']
+print(random.choice(list1))
+
+# Output: a random item from list1
+```
+
+Use `random.shuffle()` on a list to shuffle the contents of a list. The list is modified in place. 
+```py
+import random
+list1 = ['Mordor', 'The Shire', 'Gondor']
+print(random.shuffle(list1))
+
+# Output: list1 but rearranged randomly
+```
+
+Sources [Automate the Boring Stuff CH2](https://automatetheboringstuff.com/2e/chapter2/). [Automate the Boring Stuff CH4](https://automatetheboringstuff.com/2e/chapter4/)
