@@ -114,13 +114,13 @@ print(x)
 ```
 The three `..` tell the user to go back three directories, i.e. 'some', 'file', and 'path'. Then, the interpreter provides the relative path from `C:\` to the first argument, which is `\\Windows\\System`
 
-Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
-
 ### 4.8 os.unlink() and os.rmdir()
 
 Use `os.unlink()` to remove a single file. Place a file path into the parentheses.
 
 Use `os.rmdir()` to remove a directory. Place a directory path into the parentheses.
+
+Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
 
 ### 4.9 import shelve
 
@@ -137,4 +137,10 @@ x['data_list'] = data_list
 x.close()
 ```
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
+
+### 4.10 import shutil
+
+
+
+
 
