@@ -116,7 +116,13 @@ The three `..` tell the user to go back three directories, i.e. 'some', 'file', 
 
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
 
-### 4.8 import shelve
+### 4.8 os.unlink() and os.rmdir()
+
+Use `os.unlink()` to remove a single file. Place a file path into the parentheses.
+
+Use `os.rmdir()` to remove a directory. Place a directory path into the parentheses.
+
+### 4.9 import shelve
 
 The shelve module will allow you to create and store variables to binary files. In the following code, if 'test_shelve' does not exist, the program will create it. On a Windows PC, there will be three files created in the current working directory: .dat, .bak, and .dir. Once the file is open, you can store values similar to a dictionary by using key/value pairs. 
 
@@ -131,3 +137,4 @@ x['data_list'] = data_list
 x.close()
 ```
 Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
+
