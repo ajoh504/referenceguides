@@ -140,7 +140,15 @@ Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/
 
 ### 4.10 import shutil
 
+Use `shutil.copy('source file', 'destination path')` to copy a file and paste it the source destination. The `copy()` method returns a string of the new file path. 
 
+```py
+import shutil
+shutil.copy('C:\\newFile.txt', 'C:\\newFolder')
+```
+Use `shutil.copytree('source directory', 'destination path')` to copy all of the files, directories, and subdirectories. This method returns a string of the new file path.
 
+Use `shutil.move('source', 'destination path')` to move a file or directory to the given location. This method returns a string of the new file path. If a file with the same name already exists at the source then it will be overwritten during the move.  
+ 
 
 
