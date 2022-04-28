@@ -13,7 +13,7 @@ Python
 * [5. no link]()
 * [6. Regular Expressions](https://github.com/ajoh504/Reference-Guides/blob/main/Python.md#6-import-re--regex)
 * [7. Classes](https://github.com/ajoh504/Reference-Guides/blob/main/Python.md#7-classes)
-* 
+
 Windows Batch Files
 * [1. Windows Batch Files Intro](https://github.com/ajoh504/Reference-Guides/blob/main/Windows-Batch-Files.md#1-intro-to-windows-batch-files)
 * [2. Open Python Scripts](https://github.com/ajoh504/Reference-Guides/blob/main/Windows-Batch-Files.md#2-open-a-python-script-in-cmdexe)
