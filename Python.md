@@ -742,7 +742,42 @@ Sources: [Automate the Boring Stuff Ch 10](https://automatetheboringstuff.com/2e
 
 ### 4.11 create and read zip files with the zipfile module
 
-8
+To create a zipfile in the current working directory, call the `ZipFile()` function in write mode, and use the `write()` method to add files and specify the compression type, such as ZIP_DEFLATED. You must close the ZipFile object just as you would a file object. Note that `'w'` overwrites and previously existing files and `'a'` adds to them. 
+
+```PY
+import zipfile
+zip_object = zipfile.ZipFile('newfile.zip', 'w')
+zip_object.write('file_to_add.txt', compress_type=zipfile.ZIP_DEFLATED))
+zip_object.close()
+```
+
+Use the `extractall()` method on a ZipFile object to extract its content to the current working directory. Or, pass a directory path into `extractall()` to extract the files to a different location. If the directory does not exist, it will be created. 
+
+```PY
+import zipfile
+zip_object = zipfile.ZipFile('C:\\Folder\\newfile.zip')
+zip_object.extractall()
+zip_object.close()
+```
+Use `extract()` to extract a single file from the ZipFile object to the current working directory. Or, pass a directory path into `extract()` to extract the file to a different location. If the directory does not exist, it will be created.
+
+```PY
+import zipfile
+zip_object = zipfile.ZipFile('C:\\Folder\\newfile.zip')
+zip_object.extract('single_file.txt')
+zip_object.close()
+```
+To read the files contained inside a zipfile, use the `namelist()` method on a ZipFile object.
+
+```PY
+import zipfile
+zip_object = zipfile.ZipFile('C:\\Folder\\newfile.zip')
+x = zip_object.namelist()
+zip_object.close()
+print(x)
+
+# Output: all the files names from the zipfile
+```
 
 # 6. import re / regex
 
