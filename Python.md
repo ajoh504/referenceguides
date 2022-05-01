@@ -1156,6 +1156,8 @@ phoneRegex = re.compile(r'''(
 ```
 To use multiple optional arguments at the end of a regex, separate them with the pipe character: `re.compile('...'. re.VERBOSE | re.DOTALL | re.I)`
 
+Sources: [Automate the Boring Stuff with Python CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs](https://docs.python.org/3/library/re.html), [Python Docs HOWTO](https://docs.python.org/3/howto/regex.html)
+
 ### 6.18 Using variables inside regular expressions
 
 A variable containing a string value can be used inside of a regular expression. Simply surround the variable with the `+` operator. The regular expression will evaluate to a concatenated version of the string.
@@ -1165,7 +1167,7 @@ import re
 x = 'Legolas'
 y = 'Gimli'
 z = 'Legolas eventually became friends with Gimli'
-regex = re.compile(r'['+x+'].*['+y+']')
+regex = re.compile(r'['+x+']*.*['+y+']*')
 mo = regex.search(z)
 print(mo.group())
 
@@ -1173,7 +1175,19 @@ print(mo.group())
 
 ```
 
-Sources: [Automate the Boring Stuff with Python CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs](https://docs.python.org/3/library/re.html), [Python Docs HOWTO](https://docs.python.org/3/howto/regex.html)
+The same expression also works without the brackets 
+```py
+x = 'Legolas'
+y = 'Gimli'
+z = 'Legolas eventually became friends with Gimli'
+regex = re.compile(r'('+x+').*('+y+')')
+mo = regex.search(z)
+print(mo.group())
+
+# Output: Legolas eventually became friends with Gimli
+```
+Source: [github gist](https://gist.github.com/johnmccormick/0b74fd6c544b47a8da3d812e80197ded)
+
 
 # 7. Classes
 
