@@ -1,6 +1,6 @@
 # 1. Python intro / misc
 
-Explanations of certain Python concepts accompanied by code samples
+All code samples were tested using Python 3.10 or later
 
 ### 1.1 Escape characters
 
