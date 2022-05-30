@@ -83,6 +83,23 @@ finally:
 # Output: Variable not defined
 # Output: Error handling complete
 ```
+Use the `raise` statement with the `Exception()` function to create a series of exceptions. Implement this with the `try` and `except` statements.
+
+```py
+def error_handler():
+    if True:
+        raise Exception('Exception thrown:')
+
+try: 
+    error_handler()
+
+except Excption as error_message:
+    print(error_message)
+
+#Output: 'Exception thrown:'
+```
+Source: [Automate the Boring Stuff CH 11](https://automatetheboringstuff.com/2e/chapter11/)
+
 ### 1.5 tuple unpacking/multiple assignment
 
 Tuple unpacking is a shortcut for assigning each item in a list to its own variable. The variable names must equal the number of items in the list or else an error will occur.
