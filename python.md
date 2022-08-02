@@ -49,7 +49,9 @@ Use escape characters inside strings to represent characters with special meanin
 
 ### 1.2 Raw strings
 
-Raw strings can be used to ignore escape characters. This is useful if you have a string with lots of backslash characters that need to be printed, such as a Windows file path. Use `r` just before the string: `r'\\MontyPC\C:\Windows\System32\cmd.exe'`
+Raw strings can be used to ignore escape characters. This is useful if you have a string with backslash characters, such as a Windows file path. 
+
+Use `r` just before the string: `r'\\MontyPC\C:\Windows\System32\cmd.exe'`
 
 ### 1.3 String interpolation and f-strings
 
@@ -64,7 +66,9 @@ print(string1)
 # Output: Gimli used an axe, but Legolas preferred a bow.
 ```
 
-f-strings are similar, except the expression is placed inside of the string. Place `f` in front of the string to edit, and place the variables between `{}`.
+f-strings are similar to string interpolation but are more readable. They were added in Python 3.6. 
+
+Place `f` in front of the string then place the variables between `{}`.
 
 ```py
 var1 = 'bow'
@@ -134,7 +138,7 @@ except Excption as error_message:
 #Output: 'Exception thrown:'
 ```
 
-Source: [Automate the Boring Stuff CH 11](https://automatetheboringstuff.com/2e/chapter11/)
+Source: [ATBS CH 11](https://automatetheboringstuff.com/2e/chapter11/)
 
 ### 1.5 tuple unpacking/multiple assignment
 
@@ -150,7 +154,7 @@ print(human, elf)
 
 ### 1.6 indexing and slicing
 
-Use indexing notation to slice items from a list or string. Syntax: `list[i:j]` where i is the starting index and j is the stopping index.
+Use indexing notation to slice items from a list or string. Syntax: `list[i:j]` where `i` is the starting index and `j` is the stopping index.
 
 ```py
 test = [1, 2, 3, 4, 5, 6]
@@ -160,7 +164,7 @@ print(test)
 # Output: [1, 2]
 ```
 
-Use slicing in a for loop by adding a numeric value to i. This designates the stopping point as (x) amount + i.
+Use slicing in a for loop by adding a numeric value to `i`. This designates the stopping point as `(x`) amount + `i`.
 
 ```py
 var = 'abcd'
@@ -175,7 +179,11 @@ for i in range(len(var)):
 
 Use negative numbers to begin at the ending index: `test[-1]`
 
-Leave the starting or ending index empty to designate as either the first or last index: `test[:5]` or `test[5:]`
+Leave the starting or ending index empty to designate as either the first or last index: 
+
+`test[:5]` slices the first 5 characters starting at index 0.
+
+`test[5:]` slices the last 5 characters starting at the last index.
 
 ### 1.7 Change or delete list items with indices
 
@@ -247,7 +255,9 @@ print(new_list)
 
 ### 1.11 is not None
 
-Use `is` or `is not` when comparing a value against `None` rather than using `==` or `!=`. For certain use cases, this will evaluate to a Boolean value, such as when comparing against the match object of a regex. Example: if a regex finds no match, it returns `None`. So `None is not None` evaluates to `False`. If a regex does return a match object, then `None is not None` evaluates to True. 
+Use `is` or `is not` when comparing a value against `None` rather than using `==` or `!=`. For certain use cases, this will evaluate to a Boolean value, such as when comparing against the match object of a regex. 
+
+Example: if a regex finds no match, it returns `None`. So `None is not None` evaluates to `False`. If a regex does return a match object, then `None is not None` evaluates to True. 
 
 Sources: [Stack Overflow](https://stackoverflow.com/questions/14247373/python-none-comparison-should-i-use-is-or), [W3 Schools](https://www.w3schools.com/python/ref_keyword_not.asp), [Stack Overflow](https://stackoverflow.com/questions/3914667/false-or-none-vs-none-or-false)
 
@@ -288,7 +298,7 @@ Sources [ATBS CH 2](https://automatetheboringstuff.com/2e/chapter2/), [ATBS CH 4
 
 ### 2.1 calling keys(), values(), and items() on dictionaries
 
-The `keys()`, `values`, and `items()` methods can be used to loop through the contents of a dictionary. 
+The `keys()`, `values()`, and `items()` methods can be used to loop through the contents of a dictionary. 
 
 ```py
 Legolas = {'Race': "Elf", 'Weapon': "Bow"}
@@ -312,7 +322,9 @@ for k, v in Legolas.items():
 # Output: Race: Elf
 # Output: Weapon: Bow
 ```
+
 Combine these methods with the `list()` or `tuple()` functions to receive a new list or tuple with a dictionary's keys, values, or both.
+
 ```py
 Legolas = {'Race': "Elf", 'Weapon': "Bow"}
 print(list(Legolas.keys()))
@@ -321,22 +333,27 @@ print(list(Legolas.keys()))
 ```
 
 Combine with the `in` or `not in` operators to see if the key or value is inside the dictionary. 
+
 ```py
 Legolas = {'Race': "Elf", 'Weapon': "Bow"}
 print('Sword' in Legolas.keys())
 
 # Output: False
 ```
+
 The `get()` method searches a dictionary for a given key, and takes an optional argument to return if the key is not found.
+
 ```py
 Gimli = {'Race': "Dwarf", 'Weapon': "Axe"}
 print(Gimli.get('Home', 'No home found'))
 
 # Output: No home found
 ```
+
 ### 2.2 setdefault() with dictionaries
 
 The `setdefault()` method adds a key and sets its default value. If the key is already stored in the dictionary, it returns the value.
+
 ```py
 Shire = {
   'Location': "Middle Earth",
@@ -366,14 +383,15 @@ x = 'Abc'
 x = x.upper()
 print(x)
 
+# Output: 'ABC'
+
 x = x.lower()
 print(x)
 
-# Output: 'ABC'
 # Output: 'abc'
 ```
 
-Use `isupper()` or `islower()` to return a Boolean value, i.e. `True` or `False` if the string is all upper or lowercase. 
+Use `isupper()` or `islower()` to return `True` or `False` if the string is all upper or lowercase. 
 
 ```py
 x = 'ABC'
@@ -384,7 +402,7 @@ print(x.isupper())
 
 ### 2.4 startswith() and endswith() with strings
 
-Use `startswith()` or `endswith()` to return a Boolean value, i.e. `True` or `False` if the string begins with the designated string. 
+Use `startswith()` or `endswith()` to return `True` or `False` if the string begins with the designated string. 
 
 ```py
 x = 'ABC'
@@ -392,29 +410,33 @@ print(x.startswith('a'))
 
 # Output: False
 ```
+
 ### 2.5 join() and split() with a list of strings
 
 Pass a list of strings to the `join()` method to return a new string value, with all items in the list concatenated. Preface `join()` with a required string value. Both `join()` and `split()` can act upon the escape characters.  
+
 ```py
 x = ['abc', 'def']
 x = ', '.join(x)
 print(x)
 
 # Output: abc, def
-
 ```
-Use `split()` to break apart a string value into list. 
+
+Use `split()` to break apart a string value into list. Input a string value to determine where to split the string.
+
 ```py
 x = 'abc, def'
 x = x.split(', ')
 print(x)
 
 # Output: ['abc', 'def']
-
 ```
+
 ### 2.6 rjust(), ljust(), and center() to justify text
 
 Use `rjust()`, `ljust()`, or `center()` to justify text. A numeric argument is required to specify the number of spaces to justify. The character count of the string is included in this number.
+
 ```py
 x = 'Flesh wound'
 x = x.rjust(13)
@@ -422,6 +444,7 @@ print(x)
 
 # Output:   Flesh wound
 ```
+
 ### 2.7 strip(), rstrip(), and lstrip() to remove whitespace characters
 
 Use `strip()`, `rstrip()`, and `lstrip()` to remove whitespace characters (space, tab, and newline). `rstrip()` and `lstrip()` remove spaces from those sides respectively, and `strip()` removes spaces from both sides. 
@@ -433,6 +456,7 @@ print(x)
 
 # Output: Flesh wound
 ```
+
 Add an optional string value to be removed instead of the whitespace. 
 
 ```py
@@ -443,7 +467,7 @@ print(x)
 # Output: wound
 ```
 
-From [ATBS Ch 6:](https://automatetheboringstuff.com/2e/chapter6/)
+From [ATBS CH 6:](https://automatetheboringstuff.com/2e/chapter6/)
 
 > isalpha() Returns True if the string consists only of letters and isn’t blank
 > 
@@ -469,42 +493,48 @@ print(list1.index('test1'))
 
 ### 2.9 append(), insert(), remove(), sort(), and reverse() with lists
 
-Use `append()` on a list to append an item to the end of the list. Both methods modify the list in place, so the return value is `None`.
+Use `append()` on a list to append an item to the end of the list. `append()` modifies the list in place, so the return value is `None`.
 
 ```py
-test = [1,2,3,4,5]
+test = [1, 2, 3, 4, 5]
 print(test.append(6))
 print(test)
 
 # Output: None
 # Output: [1, 2, 3, 4, 5, 6]
 ```
+
 Use `insert()` with two required arguments to insert an item at any index. The first argument is the index, the second argument is the item to be added.
+
 ```py
-test = [1,2,3,4,5]
+test = [1, 2, 3, 4, 5]
 test.insert(5, 6)
 print(test)
 
 # Output: [1, 2, 3, 4, 5, 6]
 ```
-Use `remove()` two remove an item from a list. Useful if you do not know the index of the item to be removed. Otherwise, simply use `del`.
+
+Use `remove()` two remove an item from a list. `remove()` is useful if you do not know the index of the item to be removed. Otherwise, simply use `del`.
+
 ```py
-test = [1,2,3,4,5]
+test = [1, 2, 3, 4, 5]
 test.remove(5)
 print(test)
 
 # Output: [1, 2, 3, 4]
 ```
 
-Use `sort()` to sort items in a list. `sort()` takes an optional keyword: `reverse=True` to sort the items in reverse order.
+Use `sort()` to sort items in a list. `sort()` takes the optional keyword argument `reverse=True` to sort the items in reverse order.
+
 ```py
-test = [1,4,5,2,3]
+test = [1, 4, 5, 2, 3]
 test.sort(reverse=True)
 print(test)
 
 # Output: [5, 4, 3, 2, 1]
 ```
-If using `sort` on text, uppercase is sorted first and grouped together, followed by lowercase. Use the optional keyword `key=str.lower` to treat the text as all lowercase. The text is not changed to lowercase, but only treated as such for sorting purposes. 
+
+If using `sort` on text, uppercase is sorted first and grouped together, followed by lowercase. Use the optional keyword argument `key=str.lower` to treat the text as all lowercase. The text is not changed to lowercase, but only treated as such for sorting purposes. 
 
 ```py
 list1 = ['mordor', 'The Shire', 'gondor']
@@ -515,6 +545,7 @@ print(list1)
 ```
 
 Use the `reverse()` method to reverse the items in a list.
+
 ```py
 test = [1,4,5,2,3]
 test.reverse()
@@ -522,6 +553,7 @@ print(test)
 
 # Output: [1, 2, 3, 4, 5]
 ```
+
 # 3. Built-in functions
 
 ### 3.1 range() function with for loops
@@ -548,6 +580,7 @@ for i in x:
 # Output: 8
 # Output: 9
 ```
+
 The step argument can be used in a variety of scenarios. For example, printing only even or odd numbers, or every (x) number. 
 
 ```py
@@ -570,12 +603,11 @@ for i in range(10, 60, 10):
 # Output: 50
 ```
 
-range() sources: [ATBS](https://automatetheboringstuff.com/2e/chapter2/)
+`range()` sources: [ATBS CH 2](https://automatetheboringstuff.com/2e/chapter2/)
 
 ### 3.2 range() and len() functions with for loops
 
 Call `len()` inside of `range()` when accessing multiple items in a single list, or when accessing both the index and the item at that index.
-
 
 ```py
 character_list = ['Aragorn', 'Legolas', 'Bilbo']
@@ -585,13 +617,17 @@ for i in range(len(character_list)):
 
 # Output: Hobbit found
 ```
-Run the above code without the `len()` function and you'll receive the error: `TypeError: 'list' object cannot be interpreted as an integer` because the `range()` function expects to receive an integer. Run the above code without the `len()` and `range()` functions and you'll receive the error: `TypeError: list indices must be integers or slices, not str` because 
 
-Sources: [SO len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [SO TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [SO TypeError](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
+Run the above code without the `len()` function and you'll receive the error: `TypeError: 'list' object cannot be interpreted as an integer` because the `range()` function expects to receive an integer. 
+
+Run the above code without the `len()` and `range()` functions and you'll receive the error: `TypeError: list indices must be integers or slices, not str` because when looping directly over a list in Python, the index is not returned. Only the contents of the list are.
+
+Sources: [Stack Overflow len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [Stack Overflow TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [Stack Overflow TypeError](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
 
 ### 3.3 enumerate() function with for loops
 
 The `enumerate()` function can also be used in a `for` loop instead of `range(len(list))`. The for loop can receive two variables, one for list indices and one for list items.
+
 ```py
 character_list = ['Aragorn', 'Legolas', 'Bilbo']
 for index, item in enumerate(character_list):
@@ -602,10 +638,9 @@ for index, item in enumerate(character_list):
 
 ```
 
-
 ### 3.4 print() function keyword arguments
 
-The `print()` function always adds a newline character to the end of the printed output. Use `end=''` as an optional parameter with to eliminate the newline character. Any text entered inside the emptry string will also print.
+The `print()` function always adds a newline character to the end of the printed output. Use `end=''` as an optional parameter to eliminate the newline character. Any text entered inside the empty string will also print.
 
 ```py
 print('test1 ', end='')
@@ -613,6 +648,7 @@ print('test2 ', end='test3 ')
 
 # Output: test1 test2 test3
 ```
+
 Use the `sep=''` keyword to separate multiple strings with whatever you choose to place inside the empty string.
 
 ```py
@@ -620,7 +656,6 @@ print('1','2','3',sep=', ')
 
 # Output: 1, 2, 3
 ```
-
 
 ### 3.5 list() and tuple() functions
 
@@ -845,6 +880,8 @@ print(x)
 
 # Output: all the files names from the zipfile
 ```
+
+# 5. argparse and subprocess
 
 # 6. import re / regex
 
