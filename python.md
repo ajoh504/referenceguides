@@ -4,32 +4,56 @@ Code samples were tested using Python 3.10
 
 ### 1.1 Escape characters
 
-Use escape characters inside strings to represent the literal character. 
+Use escape characters inside strings to represent characters with special meanings. 
 
 ```py
-#Single quote: 
+# Single quote: 
 \'
 
-#Double quote: 
+# Double quote: 
 \"
 
-#Tab: 
+# Tab: 
 \t
 
-#Newline: 
+# Newline: 
 \n
 
-#Backslash: 
+# Backslash: 
 \\
+
+# Carriage Return:
+\r 	
+
+# Horizontal Tab:
+\t
+
+# Vertical Tab:
+\v
+
+# Backspace:
+\b
+
+# Form Feed:
+\f
+
+# Octal Value:
+\ooo
+
+# Hex Value:
+\xhh
+
+# Null Character:
+\0
 ```
 
 ### 1.2 Raw strings
 
-Raw strings can be used to ignore escape characters. This is useful if you have a string with lots of backslash characters that need to be printed, such as a Windows file path. Use the r just before the string: `r'\\MontyPC\C:\Windows\System32\cmd.exe'`
+Raw strings can be used to ignore escape characters. This is useful if you have a string with lots of backslash characters that need to be printed, such as a Windows file path. Use `r` just before the string: `r'\\MontyPC\C:\Windows\System32\cmd.exe'`
 
 ### 1.3 String interpolation and f-strings
 
-Use the %s operator within a string to designate where to add new strings. Follow the string with the `%` symbol and a tuple of the data to be passed into the string. 
+Use the `%s` operator within a string to designate where to add new strings. Follow the string with the `%` symbol and a tuple of the data to be passed into the string. 
 
 ```py
 var1 = 'bow'
@@ -40,7 +64,7 @@ print(string1)
 # Output: Gimli used an axe, but Legolas preferred a bow.
 ```
 
-f-strings are similar, except the expression is placed inside of the string. Place f in front of the string to edit, and place the variables between {}.
+f-strings are similar, except the expression is placed inside of the string. Place `f` in front of the string to edit, and place the variables between `{}`.
 
 ```py
 var1 = 'bow'
@@ -53,7 +77,7 @@ print(string1)
 
 ### 1.4 try and except statements
 
-For error handling, use the try and except statements.
+For error handling, use the `try` and `except` statements. Point the `except` statement to specific error messages.
 
 ```py
 try:
@@ -63,7 +87,7 @@ except NameError:
 
 # Output: Variable not defined
 ```
-Use the except statement multiple times if desired. Point the except statement to specific error messages.
+Use the `except` statement multiple times if desired. 
 
 ```py
 var = 'text'
@@ -78,7 +102,7 @@ except TypeError:
 # Output: Check for int and str
 ```
 
-Use else or finally as optional statements. The else block executes if no errors occured. The finally block executes whether or not errors occured.
+Use `else` or `finally` as optional statements. The `else` block executes if no errors occured. The `finally` block executes whether or not errors occured.
 
 ```py
 try:
