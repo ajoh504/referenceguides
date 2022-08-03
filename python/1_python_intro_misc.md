@@ -1,4 +1,4 @@
-# 1. Python intro / misc
+# 1. Python Intro and Miscellaneous 
 
 Code samples were tested using Python 3.10
 
