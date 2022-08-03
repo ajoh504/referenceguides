@@ -5,8 +5,8 @@ This repository contains code samples for a variety of programming concepts. The
 ### Tabe of Contents
 Python
 
-[1. Python Intro and Miscellaneous](https://github.com/ajoh504/referenceguides/blob/main/python/1_python_intro_misc.md)
-[2. Built-in Methods](https://github.com/ajoh504/referenceguides/blob/main/python/2_built_in_methods.md)
+ [1. Python Intro and Miscellaneous](https://github.com/ajoh504/referenceguides/blob/main/python/1_python_intro_misc.md)
+ [2. Built-in Methods](https://github.com/ajoh504/referenceguides/blob/main/python/2_built_in_methods.md)
 [3. Built-in Functions](https://github.com/ajoh504/referenceguides/blob/main/python/3_built_in_functions.md)
 [4. os, pathlib, and shelve modules](https://github.com/ajoh504/referenceguides/blob/main/python/4_os_pathlib_shelve.md)
 [5. argparse and subprocess](https://github.com/ajoh504/referenceguides/blob/main/python/5_argparse_subprocess.md)
