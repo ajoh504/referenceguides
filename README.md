@@ -1,6 +1,6 @@
 # Reference Guides README
 
-This repository contains code samples and explanations on a variety of programming concepts. The purpose is to provide a point of reference for programming syntax, along with an explanation of the functionality for the given code.
+This repository contains code samples for a variety of programming concepts. The purpose is to provide a point of reference for programming syntax and an explanation of the given code.
 
 ### Tabe of Contents
 Python
