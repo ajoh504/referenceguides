@@ -1,4 +1,4 @@
-# 1. Python Intro and Miscellaneous 
+# 1. Python intro / misc
 
 Code samples were tested using Python 3.10
 
@@ -221,7 +221,7 @@ print(True if x % 2 == 0 else False)
 # Output: False
 ```
 
-Sources: [Stack Overflow](https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator), [W3 Schools](https://www.w3schools.com/python/python_conditions.asp)
+Source(s): [Stack Overflow - ternary conditional](https://stackoverflow.com/questions/394809/does-python-have-a-ternary-conditional-operator), [W3 Schools - conditions](https://www.w3schools.com/python/python_conditions.asp)
     
 ### 1.9 List Comprehension
     
@@ -235,7 +235,7 @@ print(new_list)
 # Output: [1,2,3]
 ```
     
-Sources: [W3 Schools](https://www.w3schools.com/python/python_lists_comprehension.asp), [Python Docs](https://docs.python.org/3/tutorial/datastructures.html)
+Source(s): [W3 Schools - lists comprehension](https://www.w3schools.com/python/python_lists_comprehension.asp), [Python Docs - data structures](https://docs.python.org/3/tutorial/datastructures.html)
 
 ### 1.10 Use if/else in list comprehension
 
@@ -259,7 +259,7 @@ Use `is` or `is not` when comparing a value against `None` rather than using `==
 
 Example: if a regex finds no match, it returns `None`. So `None is not None` evaluates to `False`. If a regex does return a match object, then `None is not None` evaluates to True. 
 
-Sources: [Stack Overflow](https://stackoverflow.com/questions/14247373/python-none-comparison-should-i-use-is-or), [W3 Schools](https://www.w3schools.com/python/ref_keyword_not.asp), [Stack Overflow](https://stackoverflow.com/questions/3914667/false-or-none-vs-none-or-false)
+Source(s): [Stack Overflow - None comparison](https://stackoverflow.com/questions/14247373/python-none-comparison-should-i-use-is-or), [W3 Schools - ref keyword not](https://www.w3schools.com/python/ref_keyword_not.asp), [Stack Overflow - False or None](https://stackoverflow.com/questions/3914667/false-or-none-vs-none-or-false)
 
 ### 1.12 import random
 
@@ -292,4 +292,4 @@ print(random.shuffle(list1))
 # Output: list1 but rearranged randomly
 ```
 
-Sources [ATBS CH 2](https://automatetheboringstuff.com/2e/chapter2/), [ATBS CH 4](https://automatetheboringstuff.com/2e/chapter4/)
+Source(s): [ATBS CH 2](https://automatetheboringstuff.com/2e/chapter2/), [ATBS CH 4](https://automatetheboringstuff.com/2e/chapter4/)
