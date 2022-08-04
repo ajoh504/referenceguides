@@ -47,7 +47,7 @@ for i in range(10, 60, 10):
 # Output: 50
 ```
 
-`range()` sources: [ATBS CH 2](https://automatetheboringstuff.com/2e/chapter2/)
+Source(s): [ATBS CH 2](https://automatetheboringstuff.com/2e/chapter2/)
 
 ### 3.2 range() and len() functions with for loops
 
@@ -66,7 +66,7 @@ Run the above code without the `len()` function and you'll receive the error: `T
 
 Run the above code without the `len()` and `range()` functions and you'll receive the error: `TypeError: list indices must be integers or slices, not str` because when looping directly over a list in Python, the index is not returned. Only the contents of the list are.
 
-Sources: [Stack Overflow len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [Stack Overflow TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [Stack Overflow TypeError](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
+Source(s): [Stack Overflow - len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [Stack Overflow - TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [Stack Overflow - list indices must be integers](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
 
 ### 3.3 enumerate() function with for loops
 
