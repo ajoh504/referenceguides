@@ -138,7 +138,7 @@ except Excption as error_message:
 #Output: 'Exception thrown:'
 ```
 
-Source: [ATBS CH 11](https://automatetheboringstuff.com/2e/chapter11/)
+Source(s): [ATBS CH 11](https://automatetheboringstuff.com/2e/chapter11/)
 
 ### 1.5 tuple unpacking/multiple assignment
 
