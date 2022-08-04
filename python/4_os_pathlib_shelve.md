@@ -90,7 +90,7 @@ print(y)
 # Output: A string of all the contents of SomeFile.txt, plus 'This text will be appended to the file.'
 ```
 
-Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
+Source(s): [ATBS CH 9](https://automatetheboringstuff.com/2e/chapter9/)
 
 ### 4.7 import os, chdir(), and makedirs()
 
@@ -120,7 +120,7 @@ Use `os.unlink()` to remove a single file. Place a file path into the parenthese
 
 Use `os.rmdir()` to remove a directory. Place a directory path into the parentheses.
 
-Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/) and [Automate the Boring Stuff Ch 10](https://automatetheboringstuff.com/2e/chapter10/)
+Source(s): [ATBS CH 9](https://automatetheboringstuff.com/2e/chapter9/) and [ATBS CH 10](https://automatetheboringstuff.com/2e/chapter10/)
 
 ### 4.9 import shelve
 
@@ -136,7 +136,7 @@ data_list = ['test1', 'test2']
 x['data_list'] = data_list
 x.close()
 ```
-Sources: [Automate the Boring Stuff Ch 9](https://automatetheboringstuff.com/2e/chapter9/)
+Source(s): [ATBS CH 9](https://automatetheboringstuff.com/2e/chapter9/)
 
 ### 4.10 import shutil
 
@@ -148,13 +148,13 @@ shutil.copy('C:\\newFile.txt', 'C:\\newFolder')
 ```
 Use `shutil.copytree('source directory', 'destination path')` to copy all of the files, directories, and subdirectories of a specified location. This method returns a string of the new file path. The destination path must not exist for this method to work, so you must specify a new destination for the method to create!
 
-Source: [Stack Overflow](https://stackoverflow.com/questions/54491021/why-am-i-getting-the-error-fileexistserror-winerror-183-cannot-create-a-fil)
+Source(s): [Stack Overflow - FileExistsError](https://stackoverflow.com/questions/54491021/why-am-i-getting-the-error-fileexistserror-winerror-183-cannot-create-a-fil)
 
 Use `shutil.move('source', 'destination path')` to move a file or directory to the given location. This method returns a string of the new file path. If a file with the same name already exists at the source then it will be overwritten during the move. The file can also be renamed during the move by specifying a new name in the 'destination path' section.
 
 Use `shutil.rmtree('file path')` to remove a directory as well as all files and subdirectories
 
-Sources: [Automate the Boring Stuff Ch 10](https://automatetheboringstuff.com/2e/chapter10/)
+Sources: [ATBS CH 10](https://automatetheboringstuff.com/2e/chapter10/)
 
 ### 4.11 create and read zip files with the zipfile module
 
