@@ -1,10 +1,10 @@
-# 6. import re / regex
+# 6. Regular Expressions
 
-The `re` module allows you to find patterns of text with regular expressions, or regexes. Pass the regex pattern as a string value to `re.compile()` function with the `r` string prefix. This function returns a regular expression object. 
+The `re` module allows you to find patterns of text with regular expressions, or regexes. Pass the regex pattern as a string value to the `re.compile()` function. This function returns a regular expression object. 
 
 Use `\d` to denote a digit, and add string values wherever necessary. Use a backslash in front of the string values, such as `\(` for parentheses. If you don't use a backslash on the parentheses, they will perform a specific function, which we'll cover later.
 
-To search for a US phone number, use the pattern `\(\d\d\d\) \d\d\d-\d\d\d\d` or `(\d{3}) \d{3}-\d{4}` where `{3}` denotes how many `\d`'s to search for. Note that the space after the area code is a part of the pattern.
+To search for a US phone number, use the pattern `\(\d\d\d\) \d\d\d-\d\d\d\d` or `(\d{3}) \d{3}-\d{4}` where `{3}` denotes how many digits to search for. Note that the space after the area code is a part of the pattern.
 ```py
 import re
 us_phone_regex = re.compile(r'(\d\d\d) \d\d\d-\d\d\d\d')
@@ -20,12 +20,12 @@ print('Phone is a valid US number:', num_search.group())
 
 # Output: Phone is a valid US number: (555) 555-1234
 ```
-In the above example, `num_search` is the variable where the match object is stored. Match objects have a specific method called `group()`. Calling the match object variable on the `group()` method returns the pattern match.
+In the above example, `num_search` is the variable where the match object is stored. Match objects have a specific method called `group()`. Calling the `group()` method on the match object returns the pattern match.
 
 
 ### 6.1 groups within regex objects
 
-`\(` or `\)` allow the parentheses to be part of the string. But parentheses can be used without `\` to create groups within the regex. 
+Using the escape character with `\(` or `\)` allows the parentheses to be part of the string. But parentheses can be used without the escape character to serve a special function: creating groups within the regex. 
 
 Using the code sample from above, we'll separate the phone number into two groups: the area code, and the last seven digits. Since the backslashes denote the parenthese as part of the string, all we need to do is surround each group with a new set of parentheses and leave out the backslash. So the area code from before looks like this: `\(\d\d\d\)`. To separate it into a group, we'll surround it with parentheses: `(\(\d\d\d\))`. Then we'll surround the last seven digits with parentheses: `(\d\d\d-\d\d\d\d)`. The final regex will look like this: `(\(\d\d\d\)) (\d\d\d-\d\d\d\d)`. Or, as mentioned previously, to avoid typing `d` over and over again, we can use a number inside curly braces to denote how many digits to search for: `(\(\d\{3})) (\d{3}-\d{4})`.
 
@@ -95,7 +95,7 @@ print(suffix)
 
 ### 6.3 Pipe character with regex groups
 
-The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurence of any string in the regular expression. In the following code, we'll create a regex to search for a US area code in two formats: `'555'` or `'(555)'`. Separating the two formats with the `|` operator will return the first occurence of either. Recall that using `\d{3}` tells the interpreter to use `\d` three times. 
+The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurence of any string in the regular expression. In the following code, we'll create a regex to search for a US area code in two formats: `'555'` or `'(555)'`. Separating the two formats with the `|` operator will return the first occurence of either. 
 
 ```py
 import re
@@ -107,7 +107,7 @@ print(x)
 
 # Output: (555)
 ```
-The following section is from [Automate the Boring Stuff with Python CH7:](https://automatetheboringstuff.com/2e/chapter7/)
+The following text comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
 > You can also use the pipe to match one of several patterns as part of your regex. For example, say you wanted to match any of the strings 'Batman', > 'Batmobile', 'Batcopter', and 'Batbat'. Since all these strings start with Bat, it would be nice if you could specify that prefix only once. This can be > done with parentheses. Enter the following into the interactive shell:
 > ```py
@@ -119,7 +119,7 @@ The following section is from [Automate the Boring Stuff with Python CH7:](https
 > # Output mobile
 > ```
 
-In the above text, 'Bat' is used almost as a prefix to the group `(man|mobile|copter|bat)`. The same method can be used as a suffix. Next we'll create a regex that searches for an entire US phone number, but we'll group the area codes first, and use the rest of the phone number as a suffix. The format will be like this: `'((555)|555) 555-5555'`. Two area code formats are grouped together: `(555)` and `555` because they're contained within parentheses and separated by the pipe operator. The second part of the phone number, ` 555-5555`, is used almost as a suffix. The interpreter will search for that exact string. For readability, I'll write out the regex in long form instead of using `\d{3}`
+In the above text, 'Bat' is used almost as a prefix to the group `(man|mobile|copter|bat)`. The same method can be used as a suffix. Next we'll create a regex that searches for an entire US phone number, but we'll group the area codes first, and use the rest of the phone number as a suffix. The format will be like this: `'((555)|555) 555-5555'`. Two area code formats are grouped together: `(555)` and `555` because they're contained within parentheses and separated by the pipe operator. The second part of the phone number, ` 555-5555`, is used almost as a suffix. The interpreter will search for that exact string. 
 
 ```py
 import re
@@ -134,7 +134,7 @@ print(x)
 ```
 ### 6.4 Optional matching with the regex question mark
 
-Previously, the code contains a space between the area code and the rest of the phone number. Not all phone numbers contain a space at that position; sometimes numbers are written as `(555)555-5555`. The space can be made optional by using parentheses with a question mark at the end and placing a single space in the middle: `( )?`. 
+Since not all phone numbers contain spaces, the space can be made optional by using parentheses with a question mark at the end and placing a single space in the middle: `( )?`. 
 
 ```py
 import re
@@ -152,7 +152,7 @@ The `*` symbol before a group matches 0 or more of any string designated in that
 
 ### 6.6 Use braces in regex to set a range
 
-We previously covered using braces to designate how many times to search for a given string. `\d{3}` searches for three digits. The braces can also be used to set a range. `\d{1,10}` will return the first occurence of any string within that range.
+`\d{3}` searches for three digits, but the braces can also be used to set a range. `\d{1,10}` will return the first occurence of any string within that range.
 
 ```py
 import re
@@ -162,14 +162,14 @@ number_mo = number.search('5555555')
 x = number_mo.group()
 print(x)
 
-# Output: 555
+# Output: 5555555
 
 ```
 One of the two numbers can be left out. `{,9}` means 0-9, and `{9,}` means start at nine and match infinitely. 
 
 ### 6.7 regex greedy vs. non-greedy
 
-Python is greedy be default. In other words, it always matches the longest possible string within a range. To return the shortest possible string instead, use the `?`. Note that the question mark in this context is different than using it to designate an optional string. 
+Python is greedy be default, which means it always matches the longest possible string within a range. To return the shortest possible string instead, use the `?`. Note that the question mark in this context is different than using it to designate an optional string. 
 
 ```py
 import re
@@ -184,7 +184,7 @@ print(x)
 
 ### 6.8 The findall() method with regex
 
-While the `search()` method returns the first occurence of the given string in the regex, the `findall()` method returns a list with every matching string (as long as there are no groups). If there is no match, Python returns an empty string. 
+While the `search()` method returns the first occurence of the given string in the regex, the `findall()` method returns a list. If there is no match, Python returns an empty string.
 
 ```py
 import re
@@ -195,12 +195,12 @@ print(x)
 
 # Output: ['555-555-5555']
 ```
-
-### 6.9 Regex findall() with groups
+### 6.9 The findall() method and groups
 
 If the regex contains either zero or one group, findall() will return a list of string matches. If the regex contains two or more groups, then findall() will return a list of tuples. Inside each tuple are the string matches for each group in the regex. 
 
-The following comes from [Automate the Boring Stuff with Python CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
+The following text comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
+
 > ```py
 > `phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups`
 > `phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')`
@@ -213,7 +213,7 @@ The following comes from [Automate the Boring Stuff with Python CH 7:](https://a
 
 ### 6.10 Regex character classes
 
-The following table comes from [Automate the Boring Stuff with Python CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
+The following table comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
 > In the earlier phone number regex example, you learned that \d could stand for any numeric digit. That is, \d is shorthand for the regular expression (0|1|2|3|4|5|6|7|8|9).
 > 
@@ -375,7 +375,7 @@ phoneRegex = re.compile(r'''(
 ```
 To use multiple optional arguments at the end of a regex, separate them with the pipe character: `re.compile('...'. re.VERBOSE | re.DOTALL | re.I)`
 
-Sources: [Automate the Boring Stuff with Python CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs](https://docs.python.org/3/library/re.html), [Python Docs HOWTO](https://docs.python.org/3/howto/regex.html)
+Source(s): [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python Docs - re](https://docs.python.org/3/library/re.html), [Python Docs - howto regex](https://docs.python.org/3/howto/regex.html)
 
 ### 6.18 Using variables inside regular expressions
 
@@ -405,4 +405,4 @@ print(mo.group())
 
 # Output: Legolas eventually became friends with Gimli
 ```
-Source: [github gist](https://gist.github.com/johnmccormick/0b74fd6c544b47a8da3d812e80197ded)
+Source(s): [github gist - johnmccormick](https://gist.github.com/johnmccormick/0b74fd6c544b47a8da3d812e80197ded)
