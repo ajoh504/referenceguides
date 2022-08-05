@@ -2,7 +2,7 @@
 
 ### 3.1 range() function with for loops
 
-The `range()` function returns a series of numbers. By default it starts at 0 and increments by 1. An integer argument is required to designate the stopping point, and the item at the stopping point index is not returned. The `range()` function can also be called directly inside a `for` loop.
+The `range()` function returns a series of numbers. By default, it starts at 0 and increments by 1. An integer argument is required to designate the stopping index, and the stopping index is not returned. The `range()` function can also be called directly inside a `for` loop.
 
 ```py
 for i in range(3):
@@ -57,14 +57,14 @@ Call `len()` inside of `range()` when accessing multiple items in a single list,
 character_list = ['Aragorn', 'Legolas', 'Bilbo']
 for i in range(len(character_list)):
     if character_list[i] == 'Bilbo':
-        print('Hobbit found')
+        print(f'Hobbit found at index {i}')
 
-# Output: Hobbit found
+# Output: Hobbit found at index 2
 ```
 
 Run the above code without the `len()` function and you'll receive the error: `TypeError: 'list' object cannot be interpreted as an integer` because the `range()` function expects to receive an integer. 
 
-Run the above code without the `len()` and `range()` functions and you'll receive the error: `TypeError: list indices must be integers or slices, not str` because when looping directly over a list in Python, the index is not returned. Only the contents of the list are.
+Run the above code by passing the list directly into the `for` loop, and you'll receive the error: `TypeError: list indices must be integers or slices, not str` because when looping directly over a list in Python, the items in the list are returned, not the index.
 
 Source(s): [Stack Overflow - len() range()](https://stackoverflow.com/questions/19184335/is-there-a-need-for-rangelena), [Stack Overflow - TypeError](https://stackoverflow.com/questions/28036309/typeerror-list-object-cannot-be-interpreted-as-an-integer), [Stack Overflow - list indices must be integers](https://stackoverflow.com/questions/32554527/typeerror-list-indices-must-be-integers-or-slices-not-str)
 
