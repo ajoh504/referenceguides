@@ -27,7 +27,7 @@ In the above example, `num_search` is the variable where the match object is sto
 
 Using the escape character with `\(` or `\)` allows the parentheses to be part of the string. But parentheses can be used without the escape character to serve a special function: creating groups within the regex. 
 
-Using the code sample from above, we'll separate the phone number into two groups: the area code, and the last seven digits. Since the backslashes denote the parenthese as part of the string, all we need to do is surround each group with a new set of parentheses and leave out the backslash. So the area code from before looks like this: `\(\d\d\d\)`. To separate it into a group, we'll surround it with parentheses: `(\(\d\d\d\))`. Then we'll surround the last seven digits with parentheses: `(\d\d\d-\d\d\d\d)`. The final regex will look like this: `(\(\d\d\d\)) (\d\d\d-\d\d\d\d)`. Or, as mentioned previously, to avoid typing `d` over and over again, we can use a number inside curly braces to denote how many digits to search for: `(\(\d\{3})) (\d{3}-\d{4})`.
+Using the code sample from above, we'll separate the phone number into two groups: the area code, and the last seven digits. Since the backslashes denote the parentheses as part of the string, all we need to do is surround each group with a new set of parentheses and leave out the backslash. So the area code from before looks like this: `\(\d\d\d\)`. To separate it into a group, we'll surround it with parentheses: `(\(\d\d\d\))`. Then we'll surround the last seven digits with parentheses: `(\d\d\d-\d\d\d\d)`. The final regex will look like this: `(\(\d\d\d\)) (\d\d\d-\d\d\d\d)`. Or, as mentioned previously, to avoid typing `d` over and over again, we can use a number inside curly braces to denote how many digits to search for: `(\(\d\{3})) (\d{3}-\d{4})`.
 
 To view the match object by group, we call the object using the `group()` method. Passing no argument or `0` into the `group()` method returns the entire match.
 
@@ -95,7 +95,7 @@ print(suffix)
 
 ### 6.3 Pipe character with regex groups
 
-The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurence of any string in the regular expression. In the following code, we'll create a regex to search for a US area code in two formats: `'555'` or `'(555)'`. Separating the two formats with the `|` operator will return the first occurence of either. 
+The pipe `|` operator works similarly to a logical `or` operator. Using `|` in regular expressions tells the interpreter to return the first occurrence of any string in the regular expression. In the following code, we'll create a regex to search for a US area code in two formats: `'555'` or `'(555)'`. Separating the two formats with the `|` operator will return the first occurrence of either. 
 
 ```py
 import re
@@ -152,7 +152,7 @@ The `*` symbol before a group matches 0 or more of any string designated in that
 
 ### 6.6 Use braces in regex to set a range
 
-`\d{3}` searches for three digits, but the braces can also be used to set a range. `\d{1,10}` will return the first occurence of any string within that range.
+`\d{3}` searches for three digits, but the braces can also be used to set a range. `\d{1,10}` will return the first occurrence of any string within that range.
 
 ```py
 import re
@@ -169,7 +169,7 @@ One of the two numbers can be left out. `{,9}` means 0-9, and `{9,}` means start
 
 ### 6.7 regex greedy vs. non-greedy
 
-Python is greedy be default, which means it always matches the longest possible string within a range. To return the shortest possible string instead, use the `?`. Note that the question mark in this context is different than using it to designate an optional string. 
+Python is greedy be default, which means it always matches the longest possible string within a range. To return the shortest possible string instead, use the `?`. Note that the question mark in this context is different from using it to designate an optional string. 
 
 ```py
 import re
@@ -184,7 +184,7 @@ print(x)
 
 ### 6.8 The findall() method with regex
 
-While the `search()` method returns the first occurence of the given string in the regex, the `findall()` method returns a list. If there is no match, Python returns an empty string.
+While the `search()` method returns the first occurrence of the given string in the regex, the `findall()` method returns a list. If there is no match, Python returns an empty string.
 
 ```py
 import re
@@ -202,8 +202,8 @@ If the regex contains either zero or one group, findall() will return a list of 
 The following text comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
 > ```py
-> `phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups`
-> `phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')`
+> phoneNumRegex = re.compile(r'(\d\d\d)-(\d\d\d)-(\d\d\d\d)') # has groups
+> phoneNumRegex.findall('Cell: 415-555-9999 Work: 212-555-0000')
 > # Output: [('415', '555', '9999'), ('212', '555', '0000')]
 > ```
 > To summarize what the findall() method returns, remember the following:
@@ -215,19 +215,19 @@ The following text comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e
 
 The following table comes from [ATBS CH 7:](https://automatetheboringstuff.com/2e/chapter7/)
 
-> In the earlier phone number regex example, you learned that \d could stand for any numeric digit. That is, \d is shorthand for the regular expression (0|1|2|3|4|5|6|7|8|9).
+> In the earlier phone number regex example, you learned that \d could stand for any numeric digit. That is, \d is shorthand for the regular expression (0|1|2|3|4|5|6|7|8|9). There are many such shorthand character classes, as shown [below]:
 > 
-> \d	Any numeric digit from 0 to 9.
+> \d . . . . . Any numeric digit from 0 to 9.
 > 
-> \D	Any character that is not a numeric digit from 0 to 9.
+> \D . . . . . Any character that is not a numeric digit from 0 to 9.
 > 
-> \w	Any letter, numeric digit, or the underscore character. (Think of this as matching “word” characters.)
+> \w . . . . . Any letter, numeric digit, or the underscore character. (Think of this as matching “word” characters.)
 > 
-> \W	Any character that is not a letter, numeric digit, or the underscore character.
+> \W . . . . . Any character that is not a letter, numeric digit, or the underscore character.
 > 
-> \s	Any space, tab, or newline character. (Think of this as matching “space” characters.)
+> \s . . . . . Any space, tab, or newline character. (Think of this as matching “space” characters.)
 > 
-> \S	Any character that is not a space, tab, or newline.
+> \S . . . . . Any character that is not a space, tab, or newline.
 
 ```py
 import re
@@ -236,14 +236,14 @@ test_regex = re.compile(r'\d+\s+\w+')
 x = test_regex.findall('7 Samurai')
 print(x)
 
-# Output: ['7 Samurai', '7 samurai']
+# Output: ['7 Samurai']
 ```
 
 ### 6.11 Regex custom classes
 
 Python allows you to create custom classes that function similarly to character classes. For example, there is no class for letters only. But ranges can be set for letters to create a custom class: `[a-zA-z]`. When using regular expression characters inside brackets, the backslash is not needed. For example, `[a-zA-z?!.:;]` searches for all letters plus the punctuation signs. 
 
-Using the caret symbol after the opening bracket creates a negative character class. `[^a-zA-z]` returns all values except letters. Note that by default, your custom character class will only match a single occurence of the given character set, just like a standard character class.  
+Using the caret symbol after the opening bracket creates a negative character class. `[^a-zA-z]` returns all values except letters. Note that by default, your custom character class will only match a single occurrence of the given character set, just like a standard character class.  
 
 ### 6.12 Beginning and ending symbols with regex
 
@@ -275,7 +275,7 @@ Using both `^` and `$` tells the compiler to match the entire pattern. Example: 
 
 ### 6.13 Wildcard symbol
 
-The period is the wildcard symbol in regexes. It returns any character at that desigation. 
+The period is the wildcard symbol in regexes. It returns any character at that designation. 
 
 ```py
 import re
@@ -335,7 +335,7 @@ print(x)
 
 ### 6.16 regex and the sub() method
 
-Use the `sub()` method to replace the matched regex with the given string. The `sub()` method replaces all matches, not just the first occurence. The first string is what replaces the match, and the second string is the item to search through.
+Use the `sub()` method to replace the matched regex with the given string. The `sub()` method replaces all matches, not just the first occurrence. The first string is what replaces the match, and the second string is the item to search through.
 
 ```py
 import re
@@ -379,7 +379,7 @@ Source(s): [ATBS CH 7](https://automatetheboringstuff.com/2e/chapter7/), [Python
 
 ### 6.18 Using variables inside regular expressions
 
-A variable containing a string value can be used inside of a regular expression. Simply surround the variable with the `+` operator. The regular expression will evaluate to a concatenated version of the string.
+A variable containing a string value can be used inside a regular expression. Simply surround the variable with the `+` operator. The regular expression will evaluate to a concatenated version of the string.
 
 ```py
 import re
@@ -394,12 +394,25 @@ print(mo.group())
 
 ```
 
-The same expression also works without the brackets 
+The same expression also works without the brackets:
 ```py
+import re
 x = 'Legolas'
 y = 'Gimli'
 z = 'Legolas eventually became friends with Gimli'
 regex = re.compile(r'('+x+').*('+y+')')
+mo = regex.search(z)
+print(mo.group())
+
+# Output: Legolas eventually became friends with Gimli
+```
+Or:
+```py
+import re
+x = 'Legolas'
+y = 'Gimli'
+z = 'Legolas eventually became friends with Gimli'
+regex = re.compile(r''+x+'.*'+y+'')
 mo = regex.search(z)
 print(mo.group())
 
