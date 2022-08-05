@@ -1,6 +1,6 @@
 # 7. Classes
 
-In Python, a custom class can be created to organize and store objects using the `class` keyword. The print statement returns the name of the class and the memory address where the object is stored.
+In Python, a custom class can be created using the `class` keyword. The print statement returns the name of the class and the memory address where the object is stored.
 
 ```py
 class test_class:
@@ -12,7 +12,7 @@ print(test)
 # Output: <__main__.testClass object at 0x7fd88c5c6520>
 ```
 
-An object is created when a class is assigned to a variable. The variable can be used to invoke values stored inside the class.
+An object is created when a class is assigned to a variable (or when a class is called directly). The variable can be used to invoke values stored inside the class.
 
 ```py
 class test_class:
@@ -41,7 +41,7 @@ print(test.number)
 # Output: 5
 ```
 
-The `__init()__` function can receive arguments to assign new values to the class. Those values are known as instance attributes, as they are only accesible by that instance of the class. 
+The `__init()__` function can receive arguments to assign new values to the class. Those values are known as instance attributes because they are only accessible by an instance of the class. 
 
 ```py
 class menu:
@@ -59,7 +59,7 @@ print(test.dessert)
 
 ### 7.2 Class attributes vs. instance attributes
 
-Class attributes refer to variables defined within the class, and are shared by all instances of that class. To update the "menu" class, we can add an attribute that describes what type of menu it is. The instance attributes are already definied within the __init__() function as `self.entree = entree` and `self.dessert = dessert`
+Class attributes refer to variables defined within the class, and are shared by all instances of that class. To update the "menu" class, we can add an attribute that describes what type of menu it is. The instance attributes are already defined within the `__init__()` function as `self.entree = entree` and `self.dessert = dessert`
 
 ```py
 class menu:
@@ -154,7 +154,7 @@ print(menu.attr)
 ```
 ### 7.6 Static methods
 
-In Python 3.x, static methods are denoted with the `@staticmethod` decorator and do not take the `cls` or `self` parameters. Static methods are standard functions that can be accessed by calling the object instance followed by the function name, such as `obj.static_method()`. They can also be called as standalone functions without an object instance, such as `static_method()`. A static method cannot modify the class state or instance state. 
+In Python 3.x, static methods are denoted with the `@staticmethod` decorator and do not take the `cls` or `self` parameters. Static methods are standard functions that can be accessed by calling the object instance followed by the function name, such as `obj.static_method()`. A static method cannot modify the class state or instance state. 
 
 ```py
 class menu:
@@ -185,5 +185,5 @@ print(menu.is_class_defined())
 # Output: True
 ```
 
-Sources: [Learn Python](https://learnpython.com/blog/custom-class-python/), [W3](https://www.w3schools.com/python/python_classes.asp), [Learn Python](https://realpython.com/instance-class-and-static-methods-demystified/), [Python Docs](https://docs.python.org/3/tutorial/classes.html)
+Sources: [Learn Python - custom class](https://learnpython.com/blog/custom-class-python/), [W3 - classes](https://www.w3schools.com/python/python_classes.asp), [Learn Python - class and static methods](https://realpython.com/instance-class-and-static-methods-demystified/), [Python Docs - classes tutorial](https://docs.python.org/3/tutorial/classes.html)
 
